@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>作曲依頼 ─ 三原あみ 作曲家公式サイト</title>
+<meta name="description" content="作曲家・三原あみへの作曲・編曲・動画制作のご依頼。料金プラン4グレード(エッセンシャル3万円〜フラッグシップ30万円〜)、お申し込みフォーム。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="global-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">三原あみ</span>
+      <span class="nav-brand-sub">— Composer</span>
+    </a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 22 22"><line x1="3" y1="6" x2="19" y2="6" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="16" x2="19" y2="16" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="profile.html">紹介</a></li>
+      <li><a href="works.html">作品集</a></li>
+      <li><a href="kids.html">子どもの音楽</a></li>
+      <li><a href="order.html" class="active">作曲依頼</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Commission</div>
+  <h1 class="hero-title">作曲を、<em>依頼</em>する。</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-subtitle">
+    四つのプランからお選びいただけます。<br>
+    まずは無料ヒアリングから。あなたの想いをお聞かせください。
+  </p>
+  <div class="btn-row">
+    <a href="#contact" class="btn btn-primary">お申し込みフォームへ</a>
+    <a href="#process" class="btn btn-secondary">制作の流れを見る</a>
+  </div>
+</section>
+
+<!-- 料金プラン -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Pricing</div>
+      <h2 class="section-title">4つの料金プラン</h2>
+      <div class="section-divider"></div>
+      <p class="lead text-center" style="margin-top:1.5rem;">
+        ご予算と用途に合わせてお選びください。<br>
+        すべてのプランで、無料ヒアリングからスタートします。
+      </p>
+    </div>
+
+    <div class="price-grid">
+      <article class="price-card">
+        <div class="price-grade-en">Essential</div>
+        <div class="price-grade-jp">エッセンシャル</div>
+        <div class="price-amount">3万円<span> 〜</span></div>
+        <ul class="price-features">
+          <li>作曲のみ</li>
+          <li>シンプルな編成</li>
+          <li>個人記念用</li>
+          <li>修正1回まで</li>
+          <li>楽譜納品</li>
+        </ul>
+      </article>
+
+      <article class="price-card featured">
+        <div class="price-grade-en">Standard</div>
+        <div class="price-grade-jp">スタンダード</div>
+        <div class="price-amount">8万円<span> 〜</span></div>
+        <ul class="price-features">
+          <li>作曲＋編曲</li>
+          <li>簡易動画制作付</li>
+          <li>修正2回まで</li>
+          <li>楽譜＋音源納品</li>
+          <li>YouTube公開対応</li>
+        </ul>
+      </article>
+
+      <article class="price-card">
+        <div class="price-grade-en">Premium</div>
+        <div class="price-grade-jp">プレミアム</div>
+        <div class="price-amount">15万円<span> 〜</span></div>
+        <ul class="price-features">
+          <li>作曲＋編曲＋動画</li>
+          <li>プロ歌手手配</li>
+          <li>本格レコーディング</li>
+          <li>修正3回まで</li>
+          <li>JASRAC登録対応</li>
+        </ul>
+      </article>
+
+      <article class="price-card">
+        <div class="price-grade-en">Flagship</div>
+        <div class="price-grade-jp">フラッグシップ</div>
+        <div class="price-amount">30万円<span> 〜</span></div>
+        <ul class="price-features">
+          <li>企業・自治体向け</li>
+          <li>権利買取オプション</li>
+          <li>MV制作対応</li>
+          <li>無制限調整</li>
+          <li>個別カスタマイズ</li>
+        </ul>
+      </article>
+    </div>
+
+    <p style="text-align:center;margin-top:2.5rem;font-family:var(--serif-jp);color:var(--ink-mute);font-size:0.9rem;">
+      ※価格は税別です。具体的なご要望をお伺いした上で正式な見積もりをご提示します。<br>
+      ※作詞のみ・編曲のみ・動画制作のみの単独依頼も承ります（各3万円より）。<br>
+      ※ピアノ指導も承っています（月額8,000円より、月3〜4回）。
+    </p>
+  </div>
+</section>
+
+<!-- 制作の流れ -->
+<section id="process" class="section section-cream">
+  <div class="section-inner" style="max-width:880px;">
+    <div class="section-header">
+      <div class="section-eyebrow">Process</div>
+      <h2 class="section-title">制作の流れ</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="process-grid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div class="process-title">ヒアリング</div>
+        <div class="process-desc">下のフォームより、ご要望をお送りください。無料です。</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div class="process-title">お見積り</div>
+        <div class="process-desc">内容を伺った上で、最適なプランと見積もりをご提示します。</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div class="process-title">ご契約</div>
+        <div class="process-desc">条件にご納得いただけましたら、ご契約と制作開始です。</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div class="process-title">デモ提出</div>
+        <div class="process-desc">仮メロディの音源とスケッチをお届け。修正のご要望を伺います。</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">5</div>
+        <div class="process-title">本制作</div>
+        <div class="process-desc">編曲・歌唱・録音・動画制作を進めます。</div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">6</div>
+        <div class="process-title">納品</div>
+        <div class="process-desc">楽譜・音源・動画と権利関係の書類をお渡しします。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 申込フォーム -->
+<section id="contact" class="section">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="section-header">
+      <div class="section-eyebrow">Inquiry Form</div>
+      <h2 class="section-title">お申し込み・ご相談フォーム</h2>
+      <div class="section-divider"></div>
+      <p class="lead text-center" style="margin-top:1.5rem;">
+        以下のフォームにご記入ください。<br>
+        三日以内にこちらからご連絡いたします。
+      </p>
+    </div>
+
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+
+      <div class="form-row">
+        <label class="form-label">お名前<span class="required">必須</span></label>
+        <input type="text" class="form-input" name="name" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">メールアドレス<span class="required">必須</span></label>
+        <input type="email" class="form-input" name="email" required>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">お電話番号</label>
+        <input type="tel" class="form-input" name="phone">
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">ご依頼者の種別<span class="required">必須</span></label>
+        <select class="form-select" name="client_type" required>
+          <option value="">選択してください</option>
+          <option>個人（記念日・贈答・自分史）</option>
+          <option>歌手・カラオケ愛好家（持ち歌制作）</option>
+          <option>企業・店舗（社歌・CMソング）</option>
+          <option>自治体・団体（ご当地ソング・イベント曲）</option>
+          <option>教育機関（園歌・卒園ソング・発表会曲）</option>
+          <option>音楽指導者（教室・合唱団の課題曲）</option>
+          <option>その他</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">ご希望のプラン</label>
+        <select class="form-select" name="plan">
+          <option value="">未定（相談のうえ決めたい）</option>
+          <option>エッセンシャル（3万円〜）</option>
+          <option>スタンダード（8万円〜）</option>
+          <option>プレミアム（15万円〜）</option>
+          <option>フラッグシップ（30万円〜）</option>
+          <option>ライセンス利用（既存曲）</option>
+          <option>編曲のみ・動画制作のみ</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">ご希望の納期</label>
+        <input type="text" class="form-input" name="deadline" placeholder="例：3ヶ月以内、来年3月の卒園式まで など">
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">ご要望の内容<span class="required">必須</span></label>
+        <textarea class="form-textarea" name="message" required placeholder="どなたへの曲か、どのような場面で使うか、どんな雰囲気をお望みか、ご自由にお書きください。作詞をご希望の場合はその旨もお知らせください。"></textarea>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">ご予算（任意）</label>
+        <input type="text" class="form-input" name="budget" placeholder="例：5万円程度、相談したい など">
+      </div>
+
+      <div class="form-row">
+        <div></div>
+        <div>
+          <button type="submit" class="btn btn-primary" style="width:100%;padding:1rem;">送信する</button>
+          <p style="font-size:0.8rem;color:var(--ink-mute);margin-top:0.8rem;text-align:center;">
+            ※送信後、メールアプリが起動します。直接メールを送信していただくこともできます。
+          </p>
+        </div>
+      </div>
+    </form>
+
+    <div style="margin-top:3rem;padding:1.5rem;background:var(--cream-warm);border:0.5px solid var(--line);text-align:center;">
+      <p style="font-family:var(--serif-jp);color:var(--ink-soft);line-height:2;">
+        フォームでのご連絡が難しい場合は<br>
+        直接メールをお送りいただいても結構です<br>
+        <span style="font-family:var(--serif-en);font-size:1rem;color:var(--indigo-deep);font-weight:500;">paf00556@nifty.com</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- よくある質問 -->
+<section class="section section-cream">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="section-header">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="section-title">よくあるご質問</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div style="display:grid;gap:1.4rem;margin-top:2rem;">
+      <details style="background:var(--cream);padding:1.4rem 1.6rem;border:0.5px solid var(--line);">
+        <summary style="font-family:var(--serif-jp);font-weight:500;color:var(--indigo-deep);cursor:pointer;">作詞もお願いできますか？</summary>
+        <p style="margin-top:1rem;font-family:var(--serif-jp);color:var(--ink-soft);line-height:2;">
+          可能です。提携している作詞家の方々がいらっしゃいますので、テーマや思いをお聞かせいただければ、お引き合わせいたします。別途作詞料がかかります。
+        </p>
+      </details>
+      <details style="background:var(--cream);padding:1.4rem 1.6rem;border:0.5px solid var(--line);">
+        <summary style="font-family:var(--serif-jp);font-weight:500;color:var(--indigo-deep);cursor:pointer;">著作権はどうなりますか？</summary>
+        <p style="margin-top:1rem;font-family:var(--serif-jp);color:var(--ink-soft);line-height:2;">
+          通常プランでは作曲家に著作権が残り、依頼者には使用権をお渡しします。フラッグシップでは著作権の買取オプションをご用意しています。JASRAC登録もご相談に応じます。
+        </p>
+      </details>
+      <details style="background:var(--cream);padding:1.4rem 1.6rem;border:0.5px solid var(--line);">
+        <summary style="font-family:var(--serif-jp);font-weight:500;color:var(--indigo-deep);cursor:pointer;">納品までどのくらいかかりますか？</summary>
+        <p style="margin-top:1rem;font-family:var(--serif-jp);color:var(--ink-soft);line-height:2;">
+          ご依頼内容にもよりますが、エッセンシャルで約1ヶ月、プレミアム以上で2〜3ヶ月が目安です。お急ぎの場合はご相談ください。
+        </p>
+      </details>
+      <details style="background:var(--cream);padding:1.4rem 1.6rem;border:0.5px solid var(--line);">
+        <summary style="font-family:var(--serif-jp);font-weight:500;color:var(--indigo-deep);cursor:pointer;">遠方在住ですが、依頼できますか？</summary>
+        <p style="margin-top:1rem;font-family:var(--serif-jp);color:var(--ink-soft);line-height:2;">
+          全国どこからでもご依頼いただけます。やり取りはメール・お電話・オンライン会議で行います。海外からのご依頼も承っております。
+        </p>
+      </details>
+      <details style="background:var(--cream);padding:1.4rem 1.6rem;border:0.5px solid var(--line);">
+        <summary style="font-family:var(--serif-jp);font-weight:500;color:var(--indigo-deep);cursor:pointer;">既存曲のライセンス利用も可能ですか？</summary>
+        <p style="margin-top:1rem;font-family:var(--serif-jp);color:var(--ink-soft);line-height:2;">
+          はい、作品集に掲載の楽曲のライセンス利用が可能です。個人利用3,000円〜、商用利用30,000円〜。詳しくはお問い合わせください。
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer class="global-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>サイトマップ</h4>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="profile.html">紹介</a></li>
+          <li><a href="works.html">作品集</a></li>
+          <li><a href="kids.html">子どもの音楽</a></li>
+          <li><a href="order.html">作曲依頼</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>所属団体</h4>
+        <ul>
+          <li>JASRAC（日本音楽著作権協会）</li>
+          <li>日本作曲家協会</li>
+          <li>日本作曲家協議会</li>
+          <li>ミュージカルキッズKOBATO 主宰</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <ul>
+          <li><a href="order.html">作曲依頼フォーム</a></li>
+          <li>制作協力：yymm77</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 三原あみ Composer Office  /  All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const f = e.target;
+  const data = new FormData(f);
+  const subject = '【作曲依頼】' + (data.get('name') || '');
+  const body = [
+    'お名前：' + (data.get('name') || ''),
+    'メール：' + (data.get('email') || ''),
+    'お電話：' + (data.get('phone') || ''),
+    'ご依頼者の種別：' + (data.get('client_type') || ''),
+    'ご希望プラン：' + (data.get('plan') || ''),
+    'ご希望納期：' + (data.get('deadline') || ''),
+    'ご予算：' + (data.get('budget') || ''),
+    '',
+    'ご要望：',
+    data.get('message') || ''
+  ].join('\n');
+
+  const mailto = 'mailto:paf00556@nifty.com'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+  window.location.href = mailto;
+}
+</script>
+
+</body>
+</html>
