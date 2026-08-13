@@ -20,8 +20,38 @@
       "youtube": "QOSiJmYNzac",
       "genre": "kayou",
       "year": 2024,
-      "tags": ["受賞作", "エターナルソング優秀賞"],
+      "tags": [
+        "受賞作",
+        "エターナルソング優秀賞"
+      ],
       "description": "湯川れい子氏主宰エターナルソングコンテストにて優秀賞受賞。爺さまと婆さまの蕎麦と人生を歌う温かな一曲。"
+    },
+    {
+      "id": "nobori-ginryu-yumehanabi",
+      "title": "昇り銀竜夢花火",
+      "lyricist": "滝沢まさとし",
+      "singer": "梵天ゆず太郎",
+      "youtube": "wJIBcibg2xE",
+      "genre": "enka",
+      "year": 2024,
+      "tags": [
+        "演歌",
+        "祭り"
+      ],
+      "description": "花火と相性の良い、勇壮な演歌。"
+    },
+    {
+      "id": "ai-yo-kaere",
+      "title": "愛よ還れ",
+      "lyricist": "滝沢まさとし",
+      "singer": "小松伸久",
+      "youtube": "U5QBSHQ6z00",
+      "genre": "kayou",
+      "year": 2024,
+      "tags": [
+        "歌謡曲"
+      ],
+      "description": "確かな歌唱力を持つ小松伸久氏が歌う愛の歌。"
     },
     {
       "id": "inochi-no-toki",
@@ -31,7 +61,10 @@
       "youtube": "SFjRbGlvmlI",
       "genre": "ballad",
       "year": 2024,
-      "tags": ["代表作", "故郷"],
+      "tags": [
+        "代表作",
+        "故郷"
+      ],
       "description": "母のふところである故郷を想い歌った曲。歌詞を味わいつつ歌っていただきたい。"
     },
     {
@@ -42,19 +75,11 @@
       "youtube": "7po53XQrWqo",
       "genre": "ballad",
       "year": 2024,
-      "tags": ["癒し", "追悼"],
+      "tags": [
+        "癒し",
+        "追悼"
+      ],
       "description": "大切なパートナーを亡くした悲しみから立ち直る過程を表現したバラード。声量のある歌声に勇気をもらえる一曲。"
-    },
-    {
-      "id": "ai-yo-kaere",
-      "title": "愛よ還れ",
-      "lyricist": "滝沢まさとし",
-      "singer": "小松伸久",
-      "youtube": "U5QBSHQ6z00",
-      "genre": "kayou",
-      "year": 2024,
-      "tags": ["歌謡曲"],
-      "description": "確かな歌唱力を持つ小松伸久氏が歌う愛の歌。"
     },
     {
       "id": "kamakura-bonmatsuri",
@@ -64,7 +89,10 @@
       "youtube": "71zxSljtod0",
       "genre": "other",
       "year": 2024,
-      "tags": ["夏曲", "観光"],
+      "tags": [
+        "夏曲",
+        "観光"
+      ],
       "description": "熱帯夜に少しだけ涼しくなれる、鎌倉の街と洞窟の世界をモチーフにした不思議な一曲。"
     },
     {
@@ -75,19 +103,10 @@
       "youtube": "k0USOtzTqOY",
       "genre": "other",
       "year": 2024,
-      "tags": ["和風"],
+      "tags": [
+        "和風"
+      ],
       "description": "古典的な雅趣を湛えた一曲。"
-    },
-    {
-      "id": "nobori-ginryu-yumehanabi",
-      "title": "昇り銀竜夢花火",
-      "lyricist": "滝沢まさとし",
-      "singer": "梵天ゆず太郎",
-      "youtube": "wJIBcibg2xE",
-      "genre": "enka",
-      "year": 2024,
-      "tags": ["演歌", "祭り"],
-      "description": "花火と相性の良い、勇壮な演歌。"
     },
     {
       "id": "yume-kone-panya",
@@ -97,7 +116,10 @@
       "youtube": "qoYVwBU6jbs",
       "genre": "musical",
       "year": 2023,
-      "tags": ["児童", "ミュージカル"],
+      "tags": [
+        "児童",
+        "ミュージカル"
+      ],
       "description": "ミュージカルキッズKOBATOによる、子どもたちの夢を温めるパン屋さんの歌。"
     },
     {
@@ -108,7 +130,11 @@
       "youtube": "8cPprm3pIFA",
       "genre": "musical",
       "year": 2023,
-      "tags": ["児童", "ミュージカル", "Rising"],
+      "tags": [
+        "児童",
+        "ミュージカル",
+        "Rising"
+      ],
       "description": "Risingをテーマに、子どもの歩み出しを応援する一曲。"
     },
     {
@@ -119,7 +145,10 @@
       "youtube": "RpIYgwqh74c",
       "genre": "musical",
       "year": 2023,
-      "tags": ["児童", "ミュージカル"],
+      "tags": [
+        "児童",
+        "ミュージカル"
+      ],
       "description": "ココア色のような温かなひとときを描く、子ども向けミュージカル曲。"
     },
     {
@@ -130,7 +159,10 @@
       "youtube": "vWqeICdchCo",
       "genre": "doyou",
       "year": 2023,
-      "tags": ["童謡", "自然"],
+      "tags": [
+        "童謡",
+        "自然"
+      ],
       "description": "小さな種が育つ自然の営みを歌う優しい童謡。"
     },
     {
@@ -141,7 +173,10 @@
       "youtube": "bLhaCW0mw4Q",
       "genre": "doyou",
       "year": 2023,
-      "tags": ["童謡", "季節"],
+      "tags": [
+        "童謡",
+        "季節"
+      ],
       "description": "ひな祭りの夜の不思議な情景を描く童謡。"
     },
     {
@@ -152,7 +187,10 @@
       "youtube": "GwiPyGLQrMA",
       "genre": "musical",
       "year": 2023,
-      "tags": ["児童", "ユーモア"],
+      "tags": [
+        "児童",
+        "ユーモア"
+      ],
       "description": "恐竜と環境問題をユーモラスに歌う、子ども向けの楽しい一曲。"
     },
     {
@@ -163,7 +201,10 @@
       "youtube": "Iqe6RnonabU",
       "genre": "doyou",
       "year": 2023,
-      "tags": ["童謡", "国際"],
+      "tags": [
+        "童謡",
+        "国際"
+      ],
       "description": "アフリカの大地に立つバオバブの木を讃える、世界に開かれた童謡。"
     },
     {
@@ -174,7 +215,10 @@
       "youtube": "",
       "genre": "kayou",
       "year": 2025,
-      "tags": ["新譜", "歌謡曲"],
+      "tags": [
+        "新譜",
+        "歌謡曲"
+      ],
       "description": "令和7年5月13日新譜発売。歌手・坂本幸子による情感あふれる歌謡曲。"
     },
     {
@@ -185,7 +229,9 @@
       "youtube": "",
       "genre": "kayou",
       "year": 2024,
-      "tags": ["歌謡曲"],
+      "tags": [
+        "歌謡曲"
+      ],
       "description": "歌手の特性を活かした情感ある歌謡曲。"
     },
     {
@@ -196,7 +242,10 @@
       "youtube": "",
       "genre": "enka",
       "year": 2024,
-      "tags": ["演歌", "ご当地"],
+      "tags": [
+        "演歌",
+        "ご当地"
+      ],
       "description": "津軽半島最北端、龍飛崎の風を描く演歌。"
     }
   ]
