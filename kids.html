@@ -228,6 +228,29 @@
   </div>
 </section>
 
+<!-- KOBATO 作品アーカイブ -->
+<section class="section" id="kobatoArchive" style="display:none;">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">KOBATO Archive</div>
+      <h2 class="section-title">ミュージカルキッズKOBATO 作品アーカイブ</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="lead text-center" style="margin-bottom:2rem;">
+      主宰十五年のあいだに書き、子どもたちが歌ってきた作品の記録です。<br>
+      ミュージカルの劇中歌、童謡、器楽曲まで──<span id="kobatoCount"></span>
+    </p>
+
+    <div class="filter-bar" id="kobatoFilter"></div>
+    <div class="kobato-grid" id="kobatoGrid"></div>
+    <p class="empty-note" id="kobatoEmpty" style="display:none;">該当する作品がありません。</p>
+
+    <p style="font-family:var(--sans-jp);font-size:0.78rem;color:var(--ink-mute);text-align:center;margin-top:2rem;line-height:1.9;">
+      サムネイルをクリックすると、その場で再生できます。
+    </p>
+  </div>
+</section>
+
 <!-- 対象層 -->
 <section class="section">
   <div class="section-inner">
@@ -333,6 +356,92 @@
     </div>
   </div>
 </footer>
+
+<script>
+// ミュージカルキッズKOBATO 作品アーカイブ
+// 40本のiframeは重いため、サムネイル表示＋クリックで再生に切り替える方式
+(async function loadKobato() {
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+      {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+    ));
+  }
+
+  let songs = [], groups = [], current = 'all';
+
+  try {
+    const res = await fetch('kobato-songs.json');
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    songs = data.songs || [];
+    groups = data.groups || [];
+    if (songs.length === 0) throw new Error('empty');
+  } catch (e) {
+    console.error('KOBATO作品データの読込に失敗しました:', e);
+    return; // セクションごと非表示のまま
+  }
+
+  document.getElementById('kobatoCount').textContent = `全${songs.length}曲。`;
+
+  // フィルタボタン（曲が存在する分類のみ表示）
+  const counts = {};
+  songs.forEach(s => { counts[s.group] = (counts[s.group] || 0) + 1; });
+  const fb = document.getElementById('kobatoFilter');
+  fb.innerHTML =
+    `<button class="filter-btn active" data-g="all">すべて（${songs.length}）</button>` +
+    groups.filter(g => counts[g.key])
+          .map(g => `<button class="filter-btn" data-g="${esc(g.key)}">${esc(g.label)}（${counts[g.key]}）</button>`)
+          .join('');
+
+  const grid = document.getElementById('kobatoGrid');
+  const empty = document.getElementById('kobatoEmpty');
+
+  function render() {
+    const list = current === 'all' ? songs : songs.filter(s => s.group === current);
+    if (list.length === 0) {
+      grid.innerHTML = ''; empty.style.display = 'block'; return;
+    }
+    empty.style.display = 'none';
+
+    grid.innerHTML = list.map(s => `
+      <article class="kobato-card">
+        <button class="kobato-thumb" data-yt="${esc(s.youtube)}" aria-label="${esc(s.title)} を再生">
+          <img src="https://img.youtube.com/vi/${esc(s.youtube)}/hqdefault.jpg"
+               alt="" loading="lazy"
+               onerror="this.style.display='none';this.parentNode.classList.add('kobato-noimg');">
+          <span class="kobato-play" aria-hidden="true"></span>
+        </button>
+        <h3 class="kobato-title">${esc(s.title)}</h3>
+        ${s.note ? `<p class="kobato-note">${esc(s.note)}</p>` : ''}
+      </article>
+    `).join('');
+  }
+
+  // クリックでその場をiframeに差し替える
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('.kobato-thumb');
+    if (!btn) return;
+    const id = btn.dataset.yt;
+    const box = document.createElement('div');
+    box.className = 'kobato-thumb kobato-playing';
+    box.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?rel=0&autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>`;
+    btn.replaceWith(box);
+  });
+
+  fb.addEventListener('click', e => {
+    if (!e.target.matches('.filter-btn')) return;
+    fb.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    current = e.target.dataset.g;
+    render();
+  });
+
+  render();
+  document.getElementById('kobatoArchive').style.display = '';
+})();
+</script>
 
 </body>
 </html>

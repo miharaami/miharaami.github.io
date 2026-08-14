@@ -1614,3 +1614,101 @@ body {
   color: var(--ink-mute);
   line-height: 1.6;
 }
+
+/* ========== KOBATO 作品アーカイブ ========== */
+.kobato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.6rem;
+}
+
+@media (max-width: 720px) {
+  .kobato-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+
+.kobato-card { display: flex; flex-direction: column; }
+
+.kobato-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: 0.5px solid var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--indigo-deep);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.kobato-thumb:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -12px rgba(31, 58, 95, 0.35);
+}
+
+.kobato-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kobato-thumb iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.kobato-thumb.kobato-playing { cursor: default; }
+.kobato-thumb.kobato-playing:hover { transform: none; box-shadow: none; }
+
+/* 再生マーク */
+.kobato-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(20, 38, 64, 0.72);
+  transition: background 0.3s;
+}
+
+.kobato-play::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 8px 0 8px 13px;
+  border-color: transparent transparent transparent var(--cream);
+}
+
+.kobato-thumb:hover .kobato-play { background: var(--vermillion); }
+
+.kobato-title {
+  font-family: var(--serif-jp);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--indigo-deep);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  margin: 0.7rem 0 0;
+}
+
+.kobato-note {
+  font-family: var(--sans-jp);
+  font-size: 0.74rem;
+  color: var(--ink-mute);
+  line-height: 1.7;
+  margin: 0.3rem 0 0;
+}
+
+/* サムネイル取得に失敗した場合の見え方 */
+.kobato-thumb.kobato-noimg {
+  background: linear-gradient(150deg, var(--indigo) 0%, var(--indigo-deep) 100%);
+}

@@ -1,0 +1,278 @@
+{
+  "_comment": "ミュージカルキッズKOBATO 作品アーカイブ。kids.htmlで読み込む。曲を追加する場合はこのファイルに追記する。",
+  "_columns": {
+    "title": "曲名（原資料の表記のまま）",
+    "youtube": "YouTube動画ID（11文字）",
+    "group": "演目・分類のキー。groups に定義したもの",
+    "note": "補足。無ければ空文字"
+  },
+  "groups": [
+    {
+      "key": "stegomi",
+      "label": "ステゴミザウルス",
+      "description": "2007年公演「ステゴミザウルス in アイランド」に連なる作品群です。"
+    },
+    {
+      "key": "hotaru",
+      "label": "ホタルの伝言編",
+      "description": "「ホタルの伝言編」と題された作品群です。"
+    },
+    {
+      "key": "halloween",
+      "label": "ハロウィン 2007",
+      "description": "2007年のハロウィン公演で発表された作品です。"
+    },
+    {
+      "key": "minna",
+      "label": "みんなの歌",
+      "description": "「みんなの歌」として収録された版です。"
+    },
+    {
+      "key": "other",
+      "label": "その他の作品",
+      "description": "ミュージカル・童謡・器楽曲など、多岐にわたる作品です。"
+    }
+  ],
+  "songs": [
+    {
+      "title": "かえりたくない",
+      "youtube": "LdG_SX7OuW4",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "わらじと靴",
+      "youtube": "8l08BP4SgB8",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "声のゆくえに帆を向けて",
+      "youtube": "dSRwH3W7qNI",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "どんぐりよりハンバーガー",
+      "youtube": "gKP4k1dN-Wo",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "ぽんぽこ神社",
+      "youtube": "vRTPo8l__VM",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "ホタルの伝言編 その4",
+      "youtube": "icnZQOqOAyk",
+      "group": "hotaru",
+      "note": ""
+    },
+    {
+      "title": "ホタルの伝言編 その3",
+      "youtube": "zb4YJmYiZFo",
+      "group": "hotaru",
+      "note": ""
+    },
+    {
+      "title": "ホタルの伝言編 その１",
+      "youtube": "o6Vq4pvQ1Gc",
+      "group": "hotaru",
+      "note": ""
+    },
+    {
+      "title": "A Piano Solo Notre Dame セーヌは流れ歴史を奏でる",
+      "youtube": "dj-Mn7TyhrA",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "もう一つの空",
+      "youtube": "vBD29RUKGu4",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "子供ランドのテーマ",
+      "youtube": "jqCJWhQxXac",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "ステゴミザウルスのテーマ",
+      "youtube": "TOwm3Y1t9oQ",
+      "group": "stegomi",
+      "note": ""
+    },
+    {
+      "title": "命よ輝け",
+      "youtube": "ZwejOBE3mLw",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "無限大パワー",
+      "youtube": "fII2VjCm_-I",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "楽園からの目覚め",
+      "youtube": "BlvBfVikqAc",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "空へ",
+      "youtube": "5fePjthkYHo",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "君とステップ・アップ・ジャンプ",
+      "youtube": "Q-2GQen9d3Y",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "精霊たちの歌",
+      "youtube": "cgJgNPKRT7M",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "洞窟と壁画、ダンス",
+      "youtube": "BaNQn-EgtbU",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "精霊たちの歌",
+      "youtube": "q7-B91uZjOE",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "いかのおすしは合い言葉 ハロウイン２００７",
+      "youtube": "fQfEely7Sdc",
+      "group": "halloween",
+      "note": ""
+    },
+    {
+      "title": "水上まり 唄うたい ハロウイン２００７",
+      "youtube": "VSFDs-hoQ-s",
+      "group": "halloween",
+      "note": ""
+    },
+    {
+      "title": "帰り道 ハロウイン２００７",
+      "youtube": "eRxhBsX7YOM",
+      "group": "halloween",
+      "note": ""
+    },
+    {
+      "title": "パンプキンパンプキン ハロウイン２００７",
+      "youtube": "uHHMkb4g2kQ",
+      "group": "halloween",
+      "note": ""
+    },
+    {
+      "title": "Practice わかさとこんき",
+      "youtube": "V3QXLQp8ZfY",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "ステゴミザウルステーマ",
+      "youtube": "G1F7gdTcoI8",
+      "group": "stegomi",
+      "note": ""
+    },
+    {
+      "title": "太陽は満タンエネルギー",
+      "youtube": "lIjokNrsqBw",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "蟷螂カマやんのテーマ",
+      "youtube": "RFttS13J3b4",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "捨てられたロボット達",
+      "youtube": "PGWNuPwtklg",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "ソヘグンによる演奏",
+      "youtube": "WWb_h6rjIdE",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "リサイクルショー",
+      "youtube": "1dd6Xv6d5wE",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "ソヘグンを探す姉妹",
+      "youtube": "wPmOvApX2Hs",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "議員と大統領",
+      "youtube": "yiq9YZ4rMx0",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "捨てられた服のファッションショー",
+      "youtube": "2clG0XwrCYc",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "ぼくらの地球号",
+      "youtube": "EPUJb3LZ_As",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "帰り道～あなたを想っている～",
+      "youtube": "8VHp62LRBwo",
+      "group": "other",
+      "note": ""
+    },
+    {
+      "title": "カマキリかまやん みんなの歌",
+      "youtube": "cwr_2p2bEHE",
+      "group": "minna",
+      "note": ""
+    },
+    {
+      "title": "安全教室 いかのおすしは合言葉 みんなの歌",
+      "youtube": "60htMS96xWs",
+      "group": "minna",
+      "note": ""
+    },
+    {
+      "title": "子供の安全ソング 「いいゆだな」 みんなの歌",
+      "youtube": "QHIXlH4JDrY",
+      "group": "minna",
+      "note": ""
+    },
+    {
+      "title": "パンプキンパンプキン みんなの歌",
+      "youtube": "QFdyDv_9vWE",
+      "group": "minna",
+      "note": ""
+    }
+  ]
+}
