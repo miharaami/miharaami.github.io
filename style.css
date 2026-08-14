@@ -1548,3 +1548,69 @@ body {
   font-family: var(--serif-jp);
   padding: 3rem 0;
 }
+
+/* ========== 楽譜表紙グリッド ========== */
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 720px) {
+  .score-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+}
+
+.score-card {
+  margin: 0;
+  text-align: center;
+}
+
+.score-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 0.5px solid var(--line);
+  box-shadow: 0 10px 26px -14px rgba(31, 58, 95, 0.35);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.score-card:hover img {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px -14px rgba(31, 58, 95, 0.45);
+}
+
+.score-card figcaption {
+  margin-top: 0.9rem;
+  display: block;
+}
+
+.score-year {
+  display: block;
+  font-family: var(--serif-en);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+}
+
+.score-title {
+  display: block;
+  font-family: var(--serif-jp);
+  font-size: 1.08rem;
+  color: var(--indigo-deep);
+  font-weight: 500;
+  margin: 0.3rem 0 0.25rem;
+  letter-spacing: 0.04em;
+}
+
+.score-note {
+  display: block;
+  font-family: var(--sans-jp);
+  font-size: 0.74rem;
+  color: var(--ink-mute);
+  line-height: 1.6;
+}

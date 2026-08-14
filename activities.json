@@ -32,6 +32,38 @@
       "work_ids": [],
       "performers": [],
       "credit_ok": "pending"
+    },
+    {
+      "id": "2013-03-29-tinybell",
+      "date": "2013-03-29",
+      "title": "2013 tinybell concert",
+      "type": "kids",
+      "venue": "ヴィータコミューネ多目的ホール",
+      "area": "",
+      "summary": "ミュージカルキッズKOBATOによる発表公演。子どもたちが一年の稽古の成果を舞台で披露しました。",
+      "detail": "",
+      "photo": "",
+      "photo_thumb": "",
+      "photo_caption": "",
+      "work_ids": [],
+      "performers": [],
+      "credit_ok": "pending"
+    },
+    {
+      "id": "2007-03-11-stegomizaurus",
+      "date": "2007-03-11",
+      "title": "ミュージカル「ステゴミザウルス in アイランド」公演",
+      "type": "kids",
+      "venue": "ヴィータコミューネ多目的ホール",
+      "area": "",
+      "summary": "ミュージカル☆キッズ KOBATO による公演。子どもたちが歌い、演じる舞台作品として上演されました。",
+      "detail": "",
+      "photo": "",
+      "photo_thumb": "",
+      "photo_caption": "",
+      "work_ids": [],
+      "performers": [],
+      "credit_ok": "pending"
     }
   ]
 }

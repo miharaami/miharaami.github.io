@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>三原あみ 紹介 ─ 作曲家としての歩み</title>
-<meta name="description" content="作曲家・三原あみの軌跡。北海道の自然から始まり、教会のオルガン、子育て期の童謡、歌謡曲まで。受賞4年連続、JASRAC会員、日本作曲家協会会員。">
+<meta name="description" content="作曲家・三原あみの軌跡。北海道の自然から始まり、教会のオルガン、子育て期の童謡、歌謡曲まで。受賞5年連続、JASRAC会員、日本作曲家協会会員。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -119,40 +119,15 @@
 <section class="section">
   <div class="section-inner" style="max-width:760px;">
     <div class="section-header">
-      <div class="section-eyebrow">Awards & Recognition</div>
-      <h2 class="section-title">受賞歴 ─ 4年連続の評価</h2>
+      <div class="section-eyebrow">Awards &amp; Recognition</div>
+      <h2 class="section-title">受賞歴 ─ 5年連続の評価</h2>
       <div class="section-divider"></div>
     </div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-year">令和7年<br>2025</div>
-        <div class="timeline-content">
-          <div class="timeline-title">湯川れい子 エターナルソングコンテスト 優秀賞</div>
-          <div class="timeline-meta">受賞作「そばがいい」　歌：小林幸子　作詞：美貴裕子</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">令和6年<br>2024</div>
-        <div class="timeline-content">
-          <div class="timeline-title">全日本著作家協会 審査委員賞</div>
-          <div class="timeline-meta">受賞作「藍場川」</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">令和4年<br>2022</div>
-        <div class="timeline-content">
-          <div class="timeline-title">同人誌シルクロード賞 グランプリ</div>
-          <div class="timeline-meta">受賞作「清少納言 in 令和」</div>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">令和3年<br>2021</div>
-        <div class="timeline-content">
-          <div class="timeline-title">同人誌シルクロード賞 グランプリ</div>
-          <div class="timeline-meta">受賞作「空の作り方」</div>
-        </div>
-      </div>
-    </div>
+    <p class="lead text-center" style="margin-bottom:2.5rem;">
+      令和三年から令和七年まで、五年続けて評価をいただいております。
+    </p>
+    <div class="timeline" id="awardTimeline"></div>
+    <p class="empty-note" id="awardEmpty" style="display:none;">受賞歴を読み込めませんでした。</p>
   </div>
 </section>
 
@@ -167,7 +142,7 @@
     <div style="background:var(--cream);border:0.5px solid var(--gold);padding:2.4rem 2rem;text-align:center;">
       <div style="font-family:var(--serif-en);font-style:italic;color:var(--gold);font-size:1rem;letter-spacing:0.2em;margin-bottom:1rem;">KAWAI PUBLICATION</div>
       <h3 style="font-family:var(--serif-jp);font-size:1.3rem;color:var(--indigo-deep);font-weight:500;margin-bottom:1rem;line-height:1.7;">
-        カワイ出版「28人の作曲家による<br>ピアノ作品集 子どもたちへのメッセージ」
+        カワイ出版「こどもたちへメッセージ」<br><span style="font-size:0.9rem;">作曲家によるピアノ小品集／日本作曲家協議会 編</span>
       </h3>
       <div style="font-family:var(--serif-en);font-style:italic;font-size:1.6rem;color:var(--vermillion);margin:1rem 0;">3年連続・全作品採用</div>
       <p style="font-family:var(--serif-jp);color:var(--ink-soft);line-height:2;">
@@ -305,6 +280,62 @@
     </div>
   </div>
 </footer>
+
+<script>
+// 受賞歴を awards.json から読み込む（日付降順に自動整列）
+(async function loadAwards() {
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+      {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+    ));
+  }
+  const tl = document.getElementById('awardTimeline');
+  const empty = document.getElementById('awardEmpty');
+  try {
+    const res = await fetch('awards.json');
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    const list = (data.awards || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+    if (list.length === 0) throw new Error('empty');
+
+    tl.innerHTML = list.map(a => {
+      const y = a.date.slice(0, 4);
+      const [, m, d] = a.date.split('-');
+      const dateLine = a.date_precision === 'day'
+        ? `${Number(m)}月${Number(d)}日`
+        : '';
+
+      const title = a.event
+        ? `${esc(a.organization)}　${esc(a.award)}`
+        : `${esc(a.organization)}　${esc(a.award)}`;
+
+      const bits = [];
+      if (a.event) bits.push(esc(a.event));
+      if (a.credits) bits.push(esc(a.credits));
+      if (a.judge) bits.push(esc(a.judge));
+
+      return `
+        <div class="timeline-item">
+          <div class="timeline-year">
+            ${esc(a.era)}<br>${esc(y)}
+            ${dateLine ? `<span style="display:block;font-size:0.72rem;font-style:normal;opacity:0.75;">${esc(dateLine)}</span>` : ''}
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">${title}</div>
+            <div class="timeline-meta">
+              受賞作「${esc(a.work)}」
+              ${bits.length ? `<span style="display:block;margin-top:0.3rem;">${bits.join('　/　')}</span>` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch (e) {
+    console.error('受賞歴の読込に失敗しました:', e);
+    empty.style.display = 'block';
+  }
+})();
+</script>
 
 </body>
 </html>
