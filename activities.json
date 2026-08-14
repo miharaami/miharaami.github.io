@@ -1,0 +1,37 @@
+{
+  "_comment": "三原あみ 活動記録。activities.htmlで読み込む。新しい活動はこのファイルの先頭付近に追記する（日付順に自動で並び替えられる）。",
+  "_columns": {
+    "id": "ユニークID。YYYY-MM-DD-場所 の形式を推奨",
+    "date": "開催日 YYYY-MM-DD",
+    "title": "活動タイトル",
+    "type": "種別: live(ライブ出演)/promo(作品プロモーション)/award(受賞・コンテスト)/release(作品発表)/kids(指導・教育)",
+    "venue": "会場名",
+    "area": "所在地（市区町村まで）",
+    "summary": "一覧に表示される短い説明（2〜3行）",
+    "detail": "詳細説明。空欄可",
+    "photo": "写真パス。空文字なら写真なしで表示",
+    "photo_thumb": "一覧用サムネイル。空文字ならphotoを使用",
+    "photo_caption": "写真の説明",
+    "work_ids": "この日に関わった works.json の id",
+    "performers": "共演者。掲載許諾が取れているもののみ記載",
+    "credit_ok": "共演者名の掲載可否 true/false/pending。false・pendingの場合performersは表示されない"
+  },
+  "activities": [
+    {
+      "id": "2026-08-12-ofuna-cherry",
+      "date": "2026-08-12",
+      "title": "バースデーライブ ─ 大船チェリー",
+      "type": "live",
+      "venue": "大船チェリー",
+      "area": "神奈川県鎌倉市大船",
+      "summary": "三原あみの作品を歌ってくださっている歌手の方々をお迎えして、想いを込めた初めてのライブを開催しました。特別ゲストに浜ゆたかさんを迎え、一般の方の歌唱の時間も設けられた一日となりました。",
+      "detail": "作品を歌ってくださっている歌手の皆さまと、日ごろ支えてくださっている方々への感謝を込めた催しです。11時30分開場、12時00分開演。会場では一般の方も歌える時間が設けられ、歌を介した交流のひとときとなりました。",
+      "photo": "images/2026-08-12-birthday-live.jpg",
+      "photo_thumb": "images/2026-08-12-birthday-live-thumb.jpg",
+      "photo_caption": "会場にて。当日のチラシを手に。",
+      "work_ids": [],
+      "performers": [],
+      "credit_ok": "pending"
+    }
+  ]
+}

@@ -30,6 +30,7 @@
       <li><a href="index.html" class="active">ホーム</a></li>
       <li><a href="profile.html">紹介</a></li>
       <li><a href="works.html">作品集</a></li>
+      <li><a href="discography.html">ディスコグラフィ</a></li>
       <li><a href="kids.html">子どもの音楽</a></li>
       <li><a href="order.html">作曲依頼</a></li>
     </ul>
@@ -214,6 +215,25 @@
   </div>
 </section>
 
+<!-- 最新の活動 -->
+<section class="section" id="latestActivities" style="display:none;">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Recent Activities</div>
+      <h2 class="section-title">最近の活動</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="lead text-center" style="margin-bottom:2.5rem;">
+      歌い手の方々とのライブ、作品のプロモーション、コンテストへの出品。<br>
+      書くことと届けることの、その両方を続けています。
+    </p>
+    <div class="activity-brief-grid" id="latestGrid"></div>
+    <div class="text-center mt-4">
+      <a href="activities.html" class="btn btn-secondary">活動記録をすべて見る</a>
+    </div>
+  </div>
+</section>
+
 <!-- 信念の言葉 -->
 <section class="feature-box">
   <div class="feature-eyebrow">Composer's Belief</div>
@@ -246,6 +266,8 @@
           <li><a href="index.html">ホーム</a></li>
           <li><a href="profile.html">紹介</a></li>
           <li><a href="works.html">作品集</a></li>
+          <li><a href="discography.html">ディスコグラフィ</a></li>
+          <li><a href="activities.html">活動記録</a></li>
           <li><a href="kids.html">子どもの音楽</a></li>
           <li><a href="order.html">作曲依頼</a></li>
         </ul>
@@ -272,6 +294,52 @@
     </div>
   </div>
 </footer>
+
+<script>
+// 最新の活動をトップに表示（データが無い場合はセクションごと非表示）
+(async function loadLatestActivities() {
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+      {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+    ));
+  }
+  function fmtDate(iso) {
+    const [y, m, d] = iso.split('-');
+    return `${y}.${m}.${d}`;
+  }
+  try {
+    const res = await fetch('activities.json');
+    if (!res.ok) return;
+    const data = await res.json();
+    const list = (data.activities || [])
+      .slice()
+      .sort((a, b) => b.date.localeCompare(a.date))
+      .slice(0, 3);
+    if (list.length === 0) return;
+
+    document.getElementById('latestGrid').innerHTML = list.map(a => {
+      const thumb = a.photo_thumb || a.photo;
+      const photoPart = thumb
+        ? `<div class="activity-brief-photo"><img src="${esc(thumb)}" alt="${esc(a.title)}" loading="lazy"></div>`
+        : '';
+      return `
+        <a class="activity-brief" href="activities.html">
+          ${photoPart}
+          <div class="activity-brief-body">
+            <div class="activity-brief-date">${esc(fmtDate(a.date))}</div>
+            <div class="activity-brief-title">${esc(a.title)}</div>
+            <div class="activity-brief-venue">${esc(a.venue || '')}</div>
+          </div>
+        </a>
+      `;
+    }).join('');
+
+    document.getElementById('latestActivities').style.display = '';
+  } catch (e) {
+    console.error('活動データの読込に失敗しました:', e);
+  }
+})();
+</script>
 
 </body>
 </html>

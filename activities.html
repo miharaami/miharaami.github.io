@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>活動記録 ─ 三原あみ 作曲家公式サイト</title>
+<meta name="description" content="作曲家・三原あみの活動記録。ライブ出演、カラオケ道場での作品プロモーション、受賞、作品発表など、日々の音楽活動をご紹介します。">
+<meta property="og:title" content="活動記録 ─ 三原あみ 作曲家公式サイト">
+<meta property="og:description" content="ライブ出演、作品プロモーション、受賞。日々の音楽活動の記録。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="global-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">三原あみ</span>
+      <span class="nav-brand-sub">— Composer</span>
+    </a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 22 22"><line x1="3" y1="6" x2="19" y2="6" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="16" x2="19" y2="16" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="profile.html">紹介</a></li>
+      <li><a href="works.html">作品集</a></li>
+      <li><a href="discography.html">ディスコグラフィ</a></li>
+      <li><a href="kids.html">子どもの音楽</a></li>
+      <li><a href="order.html">作曲依頼</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Activities</div>
+  <h1 class="hero-title">活動記録</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-subtitle">
+    書くだけが作曲家の仕事ではありません。<br>
+    歌い手の方々と出会い、作品を届ける──<br>
+    その日々の記録です。
+  </p>
+</section>
+
+<section class="section">
+  <div class="section-inner" style="max-width:980px;">
+
+    <div class="type-filter" id="typeFilter">
+      <button class="filter-btn active" data-type="all">すべて</button>
+      <button class="filter-btn" data-type="live">ライブ出演</button>
+      <button class="filter-btn" data-type="promo">作品プロモーション</button>
+      <button class="filter-btn" data-type="award">受賞・コンテスト</button>
+      <button class="filter-btn" data-type="release">作品発表</button>
+      <button class="filter-btn" data-type="kids">指導・教育</button>
+    </div>
+
+    <div id="activityContainer"></div>
+    <p class="empty-note" id="activityEmpty" style="display:none;">該当する活動がありません。</p>
+
+  </div>
+</section>
+
+<!-- 活動の種類の説明 -->
+<section class="section section-cream">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="section-header">
+      <div class="section-eyebrow">About These Activities</div>
+      <h2 class="section-title">作曲活動の広がり</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="profile-text" style="max-width:680px;margin:0 auto;">
+      <p>
+        曲を書き上げることは、作曲家の仕事の半分にすぎません。
+        その曲を歌ってくださる方を見つけ、聴いてくださる方のもとへ届けるまでが、
+        ひとつづきの営みだと考えています。
+      </p>
+      <p>
+        歌手の方々とご一緒するライブ、カラオケ道場でのプロモーション、
+        コンテストへの出品、子どもたちへの指導──。
+        形はさまざまですが、いずれも「歌が人のもとへ届く」ための時間です。
+      </p>
+      <p>
+        このページでは、そうした日々の活動を記録してまいります。
+        作品そのものと合わせてご覧いただければ幸いです。
+      </p>
+    </div>
+    <div class="btn-row" style="margin-top:2rem;">
+      <a href="works.html" class="btn btn-secondary">作品を試聴する</a>
+      <a href="discography.html" class="btn btn-secondary">ディスコグラフィ</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 class="cta-title">歌ってくださる方を、お待ちしています</h2>
+  <p class="cta-text">楽曲の提供、ライブへのお声がけ、作曲のご依頼を承っております。</p>
+  <div class="btn-row">
+    <a href="order.html" class="btn btn-primary">お問い合わせ</a>
+    <a href="profile.html" class="btn btn-secondary">作曲家について</a>
+  </div>
+</section>
+
+<footer class="global-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>サイトマップ</h4>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="profile.html">紹介</a></li>
+          <li><a href="works.html">作品集</a></li>
+          <li><a href="discography.html">ディスコグラフィ</a></li>
+          <li><a href="activities.html">活動記録</a></li>
+          <li><a href="kids.html">子どもの音楽</a></li>
+          <li><a href="order.html">作曲依頼</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>所属団体</h4>
+        <ul>
+          <li>JASRAC（日本音楽著作権協会）</li>
+          <li>日本作曲家協会</li>
+          <li>日本作曲家協議会</li>
+          <li>ミュージカルキッズKOBATO 主宰</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <ul>
+          <li><a href="order.html">作曲依頼フォーム</a></li>
+          <li>制作協力：yymm77</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 三原あみ Composer Office  /  All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+<script>
+const TYPE_LABEL = {
+  live: 'ライブ出演',
+  promo: '作品プロモーション',
+  award: '受賞・コンテスト',
+  release: '作品発表',
+  kids: '指導・教育'
+};
+
+let allActivities = [];
+let workIndex = {};
+let currentType = 'all';
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+    {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+  ));
+}
+
+function fmtDate(iso) {
+  const [y, m, d] = iso.split('-');
+  return `${y}.${m}.${d}`;
+}
+
+function fmtDateJp(iso) {
+  const [y, m, d] = iso.split('-');
+  const w = ['日','月','火','水','木','金','土'][new Date(iso + 'T00:00:00').getDay()];
+  return `${y}年${Number(m)}月${Number(d)}日（${w}）`;
+}
+
+async function loadAll() {
+  try {
+    const [aRes, wRes] = await Promise.all([
+      fetch('activities.json'),
+      fetch('works.json').catch(() => null)
+    ]);
+    const aData = await aRes.json();
+    allActivities = aData.activities.slice().sort((a, b) =>
+      b.date.localeCompare(a.date)
+    );
+
+    if (wRes && wRes.ok) {
+      const wData = await wRes.json();
+      wData.works.forEach(w => { workIndex[w.id] = w; });
+    }
+    render();
+  } catch (e) {
+    console.error('活動データの読込に失敗しました:', e);
+    document.getElementById('activityContainer').innerHTML =
+      '<p class="empty-note">活動データを読み込めませんでした。</p>';
+  }
+}
+
+function cardHtml(a) {
+  const hasPhoto = Boolean(a.photo);
+  const thumb = a.photo_thumb || a.photo;
+
+  const photoPart = hasPhoto
+    ? `<div class="activity-photo">
+         <img src="${esc(thumb)}" alt="${esc(a.title)}" loading="lazy">
+       </div>`
+    : '';
+
+  const captionPart = (hasPhoto && a.photo_caption)
+    ? `<div class="activity-caption">${esc(a.photo_caption)}</div>`
+    : '';
+
+  const detailPart = a.detail
+    ? `<div class="activity-detail">${esc(a.detail)}</div>`
+    : '';
+
+  // 共演者は掲載許諾が true の場合のみ表示
+  const showPerformers = a.credit_ok === true && (a.performers || []).length > 0;
+  const performerPart = showPerformers
+    ? `<div class="activity-caption" style="margin-top:0.8rem;">
+         共演：${a.performers.map(esc).join('　')}
+       </div>`
+    : '';
+
+  // 関連楽曲へのリンク
+  const linked = (a.work_ids || []).filter(id => workIndex[id]);
+  const worksPart = linked.length
+    ? `<div style="margin-top:0.9rem;">
+         ${linked.map(id =>
+           `<a class="disco-link" href="works.html" style="margin-right:1rem;">▸ ${esc(workIndex[id].title)}</a>`
+         ).join('')}
+       </div>`
+    : '';
+
+  const venuePart = (a.venue || a.area)
+    ? `<div class="activity-venue">${esc(a.venue)}${a.area ? '　/　' + esc(a.area) : ''}</div>`
+    : '';
+
+  return `
+    <article class="activity-card${hasPhoto ? '' : ' no-photo'}">
+      ${photoPart}
+      <div class="activity-body">
+        <div class="activity-head">
+          <span class="activity-date">${esc(fmtDate(a.date))}</span>
+          <span class="activity-type ${esc(a.type)}">${esc(TYPE_LABEL[a.type] || a.type)}</span>
+        </div>
+        <h3 class="activity-title">${esc(a.title)}</h3>
+        ${venuePart}
+        <div class="activity-summary">${esc(a.summary)}</div>
+        ${detailPart}
+        ${worksPart}
+        ${performerPart}
+        ${captionPart}
+      </div>
+    </article>
+  `;
+}
+
+function render() {
+  const container = document.getElementById('activityContainer');
+  const empty = document.getElementById('activityEmpty');
+  const list = currentType === 'all'
+    ? allActivities
+    : allActivities.filter(a => a.type === currentType);
+
+  if (list.length === 0) {
+    container.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  // 年ごとにまとめる
+  const byYear = {};
+  list.forEach(a => {
+    const y = a.date.slice(0, 4);
+    (byYear[y] = byYear[y] || []).push(a);
+  });
+
+  const years = Object.keys(byYear).sort((a, b) => b.localeCompare(a));
+
+  container.innerHTML = years.map(y => `
+    <div class="year-heading">
+      <span class="year-heading-num">${esc(y)}</span>
+      <span class="year-heading-line"></span>
+      <span class="year-heading-count">${byYear[y].length}件</span>
+    </div>
+    <div class="activity-list">
+      ${byYear[y].map(cardHtml).join('')}
+    </div>
+  `).join('');
+}
+
+document.getElementById('typeFilter').addEventListener('click', e => {
+  if (!e.target.matches('.filter-btn')) return;
+  document.querySelectorAll('#typeFilter .filter-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  currentType = e.target.dataset.type;
+  render();
+});
+
+loadAll();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ディスコグラフィ ─ 三原あみ 作曲家公式サイト</title>
+<meta name="description" content="作曲家・三原あみのディスコグラフィ。2016年から現在まで、CD・配信リリースの一覧。DAM・Joy Soundでのカラオケ配信情報も掲載しています。">
+<meta property="og:title" content="ディスコグラフィ ─ 三原あみ 作曲家公式サイト">
+<meta property="og:description" content="2016年から続く作品リリースの記録。カラオケ配信情報も掲載。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="global-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">三原あみ</span>
+      <span class="nav-brand-sub">— Composer</span>
+    </a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 22 22"><line x1="3" y1="6" x2="19" y2="6" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="16" x2="19" y2="16" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="profile.html">紹介</a></li>
+      <li><a href="works.html">作品集</a></li>
+      <li><a href="discography.html" class="active">ディスコグラフィ</a></li>
+      <li><a href="kids.html">子どもの音楽</a></li>
+      <li><a href="order.html">作曲依頼</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Discography</div>
+  <h1 class="hero-title">ディスコグラフィ</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-subtitle">
+    二〇一六年の一枚目から、現在まで。<br>
+    歌い手の方々とともに世に送り出してきた作品の記録です。
+  </p>
+</section>
+
+<!-- 実績サマリー -->
+<div class="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-item-label">Releases</div>
+      <div class="trust-item-value" id="statTotal">─</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-label">Years</div>
+      <div class="trust-item-value" id="statYears">─</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-label">Singers</div>
+      <div class="trust-item-value" id="statSingers">─</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-label">Karaoke</div>
+      <div class="trust-item-value" id="statKaraoke">─</div>
+    </div>
+  </div>
+</div>
+
+<!-- 一覧 -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">All Releases</div>
+      <h2 class="section-title">リリース一覧</h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="filter-bar" id="discoFilter">
+      <button class="filter-btn active" data-cat="all">すべて</button>
+      <button class="filter-btn" data-cat="jishu">自主制作</button>
+      <button class="filter-btn" data-cat="seisaku">制作会社</button>
+      <button class="filter-btn" data-cat="haishin">配信</button>
+      <button class="filter-btn" data-cat="juushou">受賞記念</button>
+      <button class="filter-btn" data-cat="karaoke">カラオケ配信中</button>
+    </div>
+
+    <div class="disco-grid" id="discoGrid"></div>
+    <p class="empty-note" id="discoEmpty" style="display:none;">該当する作品がありません。</p>
+  </div>
+</section>
+
+<!-- カラオケ配信 -->
+<section class="section section-cream">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="section-header">
+      <div class="section-eyebrow">Karaoke</div>
+      <h2 class="section-title">カラオケで歌える作品</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="lead text-center" style="margin-bottom:2rem;">
+      下記の作品は、全国のカラオケ店でお歌いいただけます。<br>
+      三原あみの楽曲を、あなたの声で。
+    </p>
+    <div class="karaoke-summary">
+      <div class="karaoke-summary-label">NOW AVAILABLE</div>
+      <div class="karaoke-list" id="karaokeList"></div>
+    </div>
+    <p style="font-family:var(--sans-jp);font-size:0.8rem;color:var(--ink-mute);text-align:center;margin-top:1.2rem;line-height:1.9;">
+      ※配信状況は変更される場合があります。<br>
+      各カラオケサービスの検索機能で曲名をご確認ください。
+    </p>
+  </div>
+</section>
+
+<!-- 補足 -->
+<section class="section">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="section-header">
+      <div class="section-eyebrow">Note</div>
+      <h2 class="section-title">ご購入・お問い合わせ</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="lead text-center">
+      CDのご購入をご希望の方、作品の使用についてのご相談は、<br>
+      お問い合わせフォームよりご連絡ください。<br>
+      在庫状況は作品によって異なります。
+    </p>
+    <div class="btn-row" style="margin-top:2rem;">
+      <a href="order.html" class="btn btn-primary">お問い合わせ</a>
+      <a href="works.html" class="btn btn-secondary">作品を試聴する</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta section-cream">
+  <h2 class="cta-title">次の一枚を、あなたと</h2>
+  <p class="cta-text">新譜の制作、楽曲提供のご相談を承っております。</p>
+  <div class="btn-row">
+    <a href="order.html" class="btn btn-primary">作曲を依頼する</a>
+    <a href="activities.html" class="btn btn-secondary">活動記録を見る</a>
+  </div>
+</section>
+
+<footer class="global-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>サイトマップ</h4>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="profile.html">紹介</a></li>
+          <li><a href="works.html">作品集</a></li>
+          <li><a href="discography.html">ディスコグラフィ</a></li>
+          <li><a href="activities.html">活動記録</a></li>
+          <li><a href="kids.html">子どもの音楽</a></li>
+          <li><a href="order.html">作曲依頼</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>所属団体</h4>
+        <ul>
+          <li>JASRAC（日本音楽著作権協会）</li>
+          <li>日本作曲家協会</li>
+          <li>日本作曲家協議会</li>
+          <li>ミュージカルキッズKOBATO 主宰</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <ul>
+          <li><a href="order.html">作曲依頼フォーム</a></li>
+          <li>制作協力：yymm77</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 三原あみ Composer Office  /  All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+<script>
+const CAT_LABEL = {
+  jishu: '自主制作',
+  seisaku: '制作会社',
+  haishin: '配信リリース',
+  juushou: '受賞記念'
+};
+
+let allDisco = [];
+let workIndex = {};
+let currentCat = 'all';
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+    {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+  ));
+}
+
+function fmtDate(iso) {
+  const [y, m, d] = iso.split('-');
+  return `${y}年${Number(m)}月${Number(d)}日`;
+}
+
+async function loadAll() {
+  try {
+    const [dRes, wRes] = await Promise.all([
+      fetch('discography.json'),
+      fetch('works.json').catch(() => null)
+    ]);
+    const dData = await dRes.json();
+    allDisco = dData.discography.slice().sort((a, b) =>
+      b.release_date.localeCompare(a.release_date)
+    );
+
+    if (wRes && wRes.ok) {
+      const wData = await wRes.json();
+      wData.works.forEach(w => { workIndex[w.id] = w; });
+    }
+
+    renderStats();
+    renderGrid();
+    renderKaraoke();
+  } catch (e) {
+    console.error('ディスコグラフィデータの読込に失敗しました:', e);
+    document.getElementById('discoGrid').innerHTML =
+      '<p class="empty-note" style="grid-column:1/-1;">作品データを読み込めませんでした。</p>';
+  }
+}
+
+function renderStats() {
+  const total = allDisco.length;
+  const years = allDisco.map(d => Number(d.release_date.slice(0, 4)));
+  const singers = new Set(allDisco.map(d => d.singer).filter(Boolean));
+  const karaoke = allDisco.filter(d => d.karaoke).length;
+
+  document.getElementById('statTotal').textContent = total + '作品';
+  document.getElementById('statYears').textContent =
+    Math.min(...years) + '年 〜 ' + Math.max(...years) + '年';
+  document.getElementById('statSingers').textContent = singers.size + '名の歌い手';
+  document.getElementById('statKaraoke').textContent = karaoke + '曲 配信中';
+}
+
+function matchFilter(d) {
+  if (currentCat === 'all') return true;
+  if (currentCat === 'karaoke') return Boolean(d.karaoke);
+  return d.category === currentCat;
+}
+
+function renderGrid() {
+  const grid = document.getElementById('discoGrid');
+  const empty = document.getElementById('discoEmpty');
+  const list = allDisco.filter(matchFilter);
+
+  if (list.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  grid.innerHTML = list.map(d => {
+    const year = d.release_date.slice(0, 4);
+
+    // ジャケット部：画像があり掲載可の場合のみ表示
+    const showJacket = d.jacket && d.jacket_ok === true;
+    const jacketInner = showJacket
+      ? `<img src="${esc(d.jacket)}" alt="${esc(d.title)} ジャケット" loading="lazy">`
+      : `<div class="disco-jacket-placeholder">
+           <span class="ph-mark">♪</span>
+           <div class="ph-title">${esc(d.title)}</div>
+           <div class="ph-note">Jacket image coming soon</div>
+         </div>`;
+
+    // バッジ
+    const badges = [];
+    if (d.upcoming) badges.push('<span class="disco-badge upcoming">発売予定</span>');
+    if (d.category === 'juushou') badges.push('<span class="disco-badge award">受賞記念</span>');
+    if (d.karaoke) badges.push(`<span class="disco-badge karaoke">${esc(d.karaoke)} 配信中</span>`);
+    if (d.available === false) badges.push('<span class="disco-badge soldout">現在入手不可</span>');
+    if (CAT_LABEL[d.category] && d.category !== 'juushou') {
+      badges.push(`<span class="disco-badge">${esc(CAT_LABEL[d.category])}</span>`);
+    }
+
+    // works.html への相互リンク
+    const linked = (d.work_ids || []).filter(id => workIndex[id]);
+    const linkPart = linked.length
+      ? `<a class="disco-link" href="works.html">▸ 作品集で「${esc(workIndex[linked[0]].title)}」を聴く</a>`
+      : '';
+
+    const singerPart = d.singer
+      ? `<strong>歌</strong>：${esc(d.singer)}<br>`
+      : '';
+    const tracksPart = d.tracks_note
+      ? `<span style="display:block;margin-top:0.4rem;">収録：${esc(d.tracks_note)}</span>`
+      : '';
+
+    return `
+      <article class="disco-card">
+        <div class="disco-jacket">
+          <span class="disco-year">${esc(year)}</span>
+          ${jacketInner}
+        </div>
+        <div class="disco-info">
+          <h3 class="disco-title">${esc(d.title)}</h3>
+          <div class="disco-meta">
+            ${singerPart}
+            <strong>${esc(d.role)}</strong>：三原あみ<br>
+            ${esc(fmtDate(d.release_date))}${d.upcoming ? '（予定）' : ''}<br>
+            <span style="color:var(--ink-mute);">${esc(d.label)}</span>
+            ${tracksPart}
+          </div>
+          <div class="disco-badges">${badges.join('')}</div>
+          ${linkPart}
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+function renderKaraoke() {
+  const el = document.getElementById('karaokeList');
+  const list = allDisco.filter(d => d.karaoke);
+  if (list.length === 0) {
+    el.innerHTML = '<span style="color:var(--ink-mute);">準備中です。</span>';
+    return;
+  }
+  const sorted = list.slice().sort((a, b) =>
+    a.karaoke.localeCompare(b.karaoke) || a.release_date.localeCompare(b.release_date)
+  );
+  el.innerHTML = sorted.map(d => `
+    <div>
+      <span class="kl-service">${esc(d.karaoke)}</span>${esc(d.title)}
+      ${d.singer ? `<span style="font-family:var(--sans-jp);font-size:0.78rem;color:var(--ink-mute);margin-left:0.5rem;">歌：${esc(d.singer)}</span>` : ''}
+    </div>
+  `).join('');
+}
+
+document.getElementById('discoFilter').addEventListener('click', e => {
+  if (!e.target.matches('.filter-btn')) return;
+  document.querySelectorAll('#discoFilter .filter-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  currentCat = e.target.dataset.cat;
+  renderGrid();
+});
+
+loadAll();
+</script>
+
+</body>
+</html>
