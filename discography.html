@@ -192,6 +192,15 @@ let allDisco = [];
 let workIndex = {};
 let currentCat = 'all';
 
+// pin（表示順の指定）を比較する。決着がつかない場合は null を返す
+function comparePin(a, b) {
+  const pa = Number(a.pin) || 0, pb = Number(b.pin) || 0;
+  if (pa && pb) return pa - pb;
+  if (pa) return -1;
+  if (pb) return 1;
+  return null;
+}
+
 function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
     {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
@@ -210,12 +219,10 @@ async function loadAll() {
       fetch('works.json').catch(() => null)
     ]);
     const dData = await dRes.json();
-    // pin が指定されたものを先頭へ（数字の小さい順）。それ以外は発売日の新しい順
+    // pin が指定されたものを先頭へ。それ以外は発売日の新しい順
     allDisco = dData.discography.slice().sort((a, b) => {
-      const pa = Number(a.pin) || 0, pb = Number(b.pin) || 0;
-      if (pa && pb) return pa - pb;
-      if (pa) return -1;
-      if (pb) return 1;
+      const p = comparePin(a, b);
+      if (p !== null) return p;
       return b.release_date.localeCompare(a.release_date);
     });
 
@@ -331,9 +338,13 @@ function renderKaraoke() {
     el.innerHTML = '<span style="color:var(--ink-mute);">準備中です。</span>';
     return;
   }
-  const sorted = list.slice().sort((a, b) =>
-    a.karaoke.localeCompare(b.karaoke) || a.release_date.localeCompare(b.release_date)
-  );
+  // pin を最優先。以降はサービス名、発売日の順
+  const sorted = list.slice().sort((a, b) => {
+    const p = comparePin(a, b);
+    if (p !== null) return p;
+    return a.karaoke.localeCompare(b.karaoke)
+        || a.release_date.localeCompare(b.release_date);
+  });
   el.innerHTML = sorted.map(d => `
     <div>
       <span class="kl-service">${esc(d.karaoke)}</span>${esc(d.title)}
