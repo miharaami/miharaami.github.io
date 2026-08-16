@@ -210,9 +210,14 @@ async function loadAll() {
       fetch('works.json').catch(() => null)
     ]);
     const dData = await dRes.json();
-    allDisco = dData.discography.slice().sort((a, b) =>
-      b.release_date.localeCompare(a.release_date)
-    );
+    // pin が指定されたものを先頭へ（数字の小さい順）。それ以外は発売日の新しい順
+    allDisco = dData.discography.slice().sort((a, b) => {
+      const pa = Number(a.pin) || 0, pb = Number(b.pin) || 0;
+      if (pa && pb) return pa - pb;
+      if (pa) return -1;
+      if (pb) return 1;
+      return b.release_date.localeCompare(a.release_date);
+    });
 
     if (wRes && wRes.ok) {
       const wData = await wRes.json();

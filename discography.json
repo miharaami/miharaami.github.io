@@ -14,7 +14,8 @@
     "upcoming": "発売予定の場合 true",
     "work_ids": "works.json の id と紐付く場合に指定",
     "jacket": "ジャケット画像のパス。未取得は空文字",
-    "jacket_ok": "ジャケット掲載可否 true/false/pending"
+    "jacket_ok": "ジャケット掲載可否 true/false/pending",
+    "pin": "表示順の指定。数字が小さいほど先に出る。0または未指定なら発売日の新しい順"
   },
   "discography": [
     {
@@ -31,7 +32,8 @@
       "upcoming": false,
       "work_ids": [],
       "jacket": "jacket-teshio-yayoi.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2021-kazamachizuki",
@@ -47,7 +49,8 @@
       "upcoming": false,
       "work_ids": [],
       "jacket": "jacket-kazamachizuki.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2021-yokohama-kokoroame",
@@ -63,7 +66,8 @@
       "upcoming": false,
       "work_ids": [],
       "jacket": "jacket-yokohama-kokoroame.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2022-taisetsu-na-hana",
@@ -79,7 +83,8 @@
       "upcoming": false,
       "work_ids": [],
       "jacket": "jacket-taisetsu-na-hana.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2023-sora-kara-no-loveletter",
@@ -95,7 +100,8 @@
       "upcoming": false,
       "work_ids": [],
       "jacket": "jacket-sora-kara-no-loveletter.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2023-anata-to",
@@ -111,7 +117,8 @@
       "upcoming": false,
       "work_ids": [],
       "jacket": "jacket-anata-to.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2024-kaze-no-tappizaki",
@@ -129,7 +136,8 @@
         "kaze-no-tappizaki"
       ],
       "jacket": "jacket-kaze-no-tappizaki.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2024-nobori-ginryu",
@@ -146,8 +154,9 @@
       "work_ids": [
         "nobori-ginryu-yumehanabi"
       ],
-      "jacket": "",
-      "jacket_ok": "pending"
+      "jacket": "jacket-nobori-ginryu.jpg",
+      "jacket_ok": true,
+      "pin": 1
     },
     {
       "id": "cd-2024-eternal-song",
@@ -165,7 +174,8 @@
         "soba-ga-ii"
       ],
       "jacket": "jacket-eternal-song.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2025-sora-no-hajimari",
@@ -183,7 +193,8 @@
         "sora-no-hajimari"
       ],
       "jacket": "jacket-sora-no-hajimari.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2026-ichizu-zake",
@@ -201,7 +212,8 @@
         "ichizu-zake"
       ],
       "jacket": "jacket-ichizu-zake.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2026-miren-bana",
@@ -219,7 +231,8 @@
         "miren-bana"
       ],
       "jacket": "jacket-miren-bana.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     },
     {
       "id": "cd-2026-oshima-ondo",
@@ -235,7 +248,8 @@
       "upcoming": true,
       "work_ids": [],
       "jacket": "jacket-oshima-ondo.jpg",
-      "jacket_ok": true
+      "jacket_ok": true,
+      "pin": 0
     }
   ]
 }
