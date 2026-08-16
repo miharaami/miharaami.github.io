@@ -177,7 +177,13 @@
       </p>
     </div>
 
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" id="orderForm"
+          action="https://formspree.io/f/xoeanlwl" method="POST"
+          onsubmit="handleSubmit(event)">
+
+      <!-- 迷惑投稿よけ（人には見えない項目。入力があれば送信しない） -->
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
 
       <div class="form-row">
         <label class="form-label">お名前<span class="required">必須</span></label>
@@ -239,19 +245,24 @@
       <div class="form-row">
         <div></div>
         <div>
-          <button type="submit" class="btn btn-primary" style="width:100%;padding:1rem;">送信する</button>
-          <p style="font-size:0.8rem;color:var(--ink-mute);margin-top:0.8rem;text-align:center;">
-            ※送信後、メールアプリが起動します。直接メールを送信していただくこともできます。
+          <button type="submit" class="btn btn-primary" id="submitBtn"
+                  style="width:100%;padding:1rem;">送信する</button>
+          <p style="font-size:0.8rem;color:var(--ink-mute);margin-top:0.8rem;text-align:center;line-height:1.9;">
+            ※いただいた内容は、そのまま三原あみに届きます。<br>
+            三日以内に返信がない場合は、お手数ですが再度ご連絡ください。
           </p>
         </div>
       </div>
     </form>
 
+    <!-- 送信結果の表示。フォームを隠しても残るよう、form の外に置く -->
+    <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+
     <div style="margin-top:3rem;padding:1.5rem;background:var(--cream-warm);border:0.5px solid var(--line);text-align:center;">
       <p style="font-family:var(--serif-jp);color:var(--ink-soft);line-height:2;">
         フォームでのご連絡が難しい場合は<br>
         直接メールをお送りいただいても結構です<br>
-        <span style="font-family:var(--serif-en);font-size:1rem;color:var(--indigo-deep);font-weight:500;">paf00556@nifty.com</span>
+        <span id="mailLink" style="font-family:var(--serif-en);font-size:1rem;color:var(--indigo-deep);font-weight:500;"></span>
       </p>
     </div>
 
@@ -340,29 +351,72 @@
 </footer>
 
 <script>
-function handleSubmit(e) {
+// Formspree へ非同期送信する。ページ遷移せず、その場に結果を表示する
+async function handleSubmit(e) {
   e.preventDefault();
-  const f = e.target;
-  const data = new FormData(f);
-  const subject = '【作曲依頼】' + (data.get('name') || '');
-  const body = [
-    'お名前：' + (data.get('name') || ''),
-    'メール：' + (data.get('email') || ''),
-    'お電話：' + (data.get('phone') || ''),
-    'ご依頼者の種別：' + (data.get('client_type') || ''),
-    'ご希望プラン：' + (data.get('plan') || ''),
-    'ご希望納期：' + (data.get('deadline') || ''),
-    'ご予算：' + (data.get('budget') || ''),
-    '',
-    'ご要望：',
-    data.get('message') || ''
-  ].join('\n');
+  const form = e.target;
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
 
-  const mailto = 'mailto:paf00556@nifty.com'
-    + '?subject=' + encodeURIComponent(subject)
-    + '&body=' + encodeURIComponent(body);
-  window.location.href = mailto;
+  // 二重送信の防止
+  if (btn.disabled) return;
+  btn.disabled = true;
+  const label = btn.textContent;
+  btn.textContent = '送信中…';
+  status.className = 'form-status';
+  status.textContent = '';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      form.style.display = 'none';
+      status.className = 'form-status is-ok is-standalone';
+      status.innerHTML =
+        '<strong>お問い合わせを承りました。</strong>' +
+        '三日以内にこちらからご連絡いたします。<br>' +
+        'しばらく経っても返信が届かない場合は、迷惑メールフォルダをご確認のうえ、' +
+        'お手数ですが再度ご連絡ください。';
+      status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Formspree からのエラー内容を拾う
+    let msg = '';
+    try {
+      const d = await res.json();
+      if (d && Array.isArray(d.errors)) msg = d.errors.map(x => x.message).join(' / ');
+    } catch (_) {}
+    throw new Error(msg || '送信に失敗しました');
+
+  } catch (err) {
+    console.error('フォーム送信エラー:', err);
+    status.className = 'form-status is-ng';
+    status.innerHTML =
+      '送信できませんでした。通信状況をご確認のうえ、もう一度お試しください。<br>' +
+      '繰り返し失敗する場合は、下記のメールアドレスまで直接ご連絡ください。';
+    btn.disabled = false;
+    btn.textContent = label;
+  }
 }
+// メールアドレスは分割して組み立てる（収集ロボット対策）
+(function showMail() {
+  const el = document.getElementById('mailLink');
+  if (!el) return;
+  const user = ['mihara', 'ami', 'composer'].join('.');
+  const addr = user + String.fromCharCode(64) + 'gmail.com';
+  const a = document.createElement('a');
+  a.href = 'mail' + 'to:' + addr;
+  a.textContent = addr;
+  a.style.color = 'inherit';
+  a.style.textDecoration = 'none';
+  a.style.borderBottom = '0.5px solid var(--gold)';
+  el.appendChild(a);
+})();
 </script>
 
 </body>

@@ -1712,3 +1712,39 @@ body {
 .kobato-thumb.kobato-noimg {
   background: linear-gradient(150deg, var(--indigo) 0%, var(--indigo-deep) 100%);
 }
+
+/* ========== フォーム送信結果の表示 ========== */
+.form-status {
+  font-family: var(--serif-jp);
+  font-size: 0.9rem;
+  line-height: 1.9;
+  text-align: center;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.form-status:empty { display: none; }
+
+.form-status.is-ok {
+  color: var(--jade, #2d6a4f);
+  background: rgba(45, 106, 79, 0.07);
+  border: 0.5px solid rgba(45, 106, 79, 0.4);
+  padding: 1.6rem 1.4rem;
+}
+
+.form-status.is-ok strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--indigo-deep);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.form-status.is-standalone { margin: 2rem 0; }
+
+.form-status.is-ng {
+  color: var(--vermillion);
+  background: rgba(200, 76, 61, 0.07);
+  border: 0.5px solid rgba(200, 76, 61, 0.35);
+  padding: 1rem 1.2rem;
+}
