@@ -1,0 +1,40 @@
+{
+  "_comment": "三原あみ 童謡作品年譜。日本童謡協会の童謡祭・コーラス展への入選記録。profile.htmlで読み込む。手書きの制作記録にもとづく。",
+  "_columns": {
+    "year": "入選年（西暦）",
+    "title": "作品名",
+    "category": "doyousai(童謡祭) / chorus(コーラス展)",
+    "note": "補足。無ければ空文字",
+    "work_id": "works.json の id と紐付く場合に指定"
+  },
+  "categories": [
+    { "key": "doyousai", "label": "童謡祭" },
+    { "key": "chorus", "label": "コーラス展" }
+  ],
+  "entries": [
+    { "year": 2017, "title": "かぞくの花", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 2015, "title": "空のポケット", "category": "chorus", "note": "", "work_id": "" },
+    { "year": 2015, "title": "夜中のおひなさま", "category": "doyousai", "note": "", "work_id": "yonaka-no-ohinasama" },
+    { "year": 2014, "title": "たねのうた", "category": "chorus", "note": "", "work_id": "tane-no-uta" },
+    { "year": 2014, "title": "たけのこタケちゃん", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 2013, "title": "みんな耳をすましてた", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 2012, "title": "マトリョーシカ", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 2006, "title": "雪だるまと北風さん", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 2004, "title": "虹よ", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 2003, "title": "クレヨンの歌", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 2002, "title": "たんぽぽのタンゴ", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 2001, "title": "鼓動", "category": "chorus", "note": "", "work_id": "" },
+    { "year": 2001, "title": "なりたいな", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 2000, "title": "森のプールは ビーバーのお家", "category": "doyousai", "note": "「2000 新しい童謡集」（第23回童謡祭作品）に収録。作詩：井上灯美子。やなせたかし氏によるイラストが添えられています。", "work_id": "" },
+    { "year": 1999, "title": "虫のてがみ", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 1998, "title": "はじめの一歩", "category": "chorus", "note": "", "work_id": "hajime-no-ippo" },
+    { "year": 1998, "title": "すみれ", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 1996, "title": "おばけのフーちゃん０グラム", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 1995, "title": "おなべ", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 1994, "title": "木の歌", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 1993, "title": "バオバブの木の下で", "category": "doyousai", "note": "「'93 新しい童謡集」（第16回童謡祭作品）に収録。作詩：進藤いつ子。やなせたかし氏によるイラストが添えられています。", "work_id": "baobab-no-ki-no-shita-de" },
+    { "year": 1992, "title": "おばあちゃんがやって来た", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 1991, "title": "のらねこトラよ", "category": "doyousai", "note": "", "work_id": "" },
+    { "year": 1990, "title": "ポプラと風", "category": "doyousai", "note": "", "work_id": "" }
+  ]
+}

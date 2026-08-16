@@ -1748,3 +1748,80 @@ body {
   border: 0.5px solid rgba(200, 76, 61, 0.35);
   padding: 1rem 1.2rem;
 }
+
+/* ========== 童謡作品年譜 ========== */
+.nenpu {
+  border-top: 0.5px solid var(--line);
+}
+
+.nenpu-row {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 1.4rem;
+  padding: 1rem 0;
+  border-bottom: 0.5px solid var(--line-soft);
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .nenpu-row { grid-template-columns: 62px 1fr; gap: 0.9rem; }
+}
+
+.nenpu-year {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  padding-top: 0.1rem;
+}
+
+.nenpu-works {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nenpu-item { line-height: 1.7; }
+
+.nenpu-cat {
+  display: inline-block;
+  font-family: var(--sans-jp);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  padding: 0.14rem 0.5rem;
+  border-radius: 2px;
+  margin-right: 0.7rem;
+  vertical-align: 2px;
+  white-space: nowrap;
+}
+
+.nenpu-cat-doyousai {
+  background: rgba(74, 107, 145, 0.1);
+  color: var(--indigo);
+  border: 0.5px solid var(--indigo-light);
+}
+
+.nenpu-cat-chorus {
+  background: rgba(201, 169, 97, 0.14);
+  color: #8a6f2e;
+  border: 0.5px solid var(--gold);
+}
+
+.nenpu-title {
+  font-family: var(--serif-jp);
+  font-size: 1rem;
+  color: var(--indigo-deep);
+  letter-spacing: 0.03em;
+}
+
+.nenpu-note {
+  display: block;
+  font-family: var(--sans-jp);
+  font-size: 0.75rem;
+  color: var(--ink-mute);
+  line-height: 1.8;
+  margin-top: 0.3rem;
+  padding-left: 0.2rem;
+}

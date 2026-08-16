@@ -67,6 +67,8 @@
       <p>
         その後、四人の子育てが長く続いた時期は、童謡や子どもミュージカルの
         制作に力を注ぎました。育児をしながら五線譜に向かう生活。
+        平成二年から平成二十九年にかけて、日本童謡協会の童謡祭とコーラス展に
+        毎年のように作品を送り、二十四の作品が入選をいただきました。
         子どもたちが歌えるよう、覚えやすく、しかし安易ではない曲を──
         この時期に培った「歌う人に寄り添う」感覚は、今も私の作曲の核です。
       </p>
@@ -130,6 +132,26 @@
     </p>
     <div class="timeline" id="awardTimeline"></div>
     <p class="empty-note" id="awardEmpty" style="display:none;">受賞歴を読み込めませんでした。</p>
+  </div>
+</section>
+
+<!-- 童謡作品年譜 -->
+<section class="section section-cream" id="doyouNenpu" style="display:none;">
+  <div class="section-inner" style="max-width:820px;">
+    <div class="section-header">
+      <div class="section-eyebrow">Children's Songs</div>
+      <h2 class="section-title">童謡作品年譜</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="lead text-center" style="margin-bottom:2.5rem;">
+      社団法人 日本童謡協会の童謡祭・コーラス展へ、<br>
+      四人の子育てのかたわら作品を送り続けてまいりました。<br>
+      <span id="nenpuSummary" style="display:block;margin-top:1rem;font-size:0.95rem;color:var(--ink-mute);"></span>
+    </p>
+    <div class="nenpu" id="nenpuList"></div>
+    <p style="font-family:var(--sans-jp);font-size:0.78rem;color:var(--ink-mute);text-align:center;margin-top:2rem;line-height:1.9;">
+      ※手元の制作記録にもとづく一覧です。掲載のない年もございます。
+    </p>
   </div>
 </section>
 
@@ -336,6 +358,56 @@
   } catch (e) {
     console.error('受賞歴の読込に失敗しました:', e);
     empty.style.display = 'block';
+  }
+})();
+// 童謡作品年譜（日本童謡協会 童謡祭・コーラス展）
+(async function loadNenpu() {
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+      {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+    ));
+  }
+  try {
+    const res = await fetch('doyou-nenpu.json');
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    const entries = (data.entries || []).slice().sort((a, b) => b.year - a.year);
+    if (entries.length === 0) throw new Error('empty');
+
+    const label = {};
+    (data.categories || []).forEach(c => { label[c.key] = c.label; });
+
+    // 集計
+    const years = entries.map(e => e.year);
+    const min = Math.min(...years), max = Math.max(...years);
+    const nD = entries.filter(e => e.category === 'doyousai').length;
+    const nC = entries.filter(e => e.category === 'chorus').length;
+    document.getElementById('nenpuSummary').textContent =
+      `${min}年〜${max}年　童謡祭 ${nD}作品／コーラス展 ${nC}作品　計${entries.length}作品`;
+
+    // 年ごとにまとめる
+    const byYear = {};
+    entries.forEach(e => { (byYear[e.year] = byYear[e.year] || []).push(e); });
+
+    document.getElementById('nenpuList').innerHTML =
+      Object.keys(byYear).sort((a, b) => b - a).map(y => `
+        <div class="nenpu-row">
+          <div class="nenpu-year">${esc(y)}</div>
+          <div class="nenpu-works">
+            ${byYear[y].map(e => `
+              <div class="nenpu-item">
+                <span class="nenpu-cat nenpu-cat-${esc(e.category)}">${esc(label[e.category] || e.category)}</span>
+                <span class="nenpu-title">${esc(e.title)}</span>
+                ${e.note ? `<span class="nenpu-note">${esc(e.note)}</span>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+
+    document.getElementById('doyouNenpu').style.display = '';
+  } catch (e) {
+    console.error('童謡年譜の読込に失敗しました:', e);
   }
 })();
 </script>
