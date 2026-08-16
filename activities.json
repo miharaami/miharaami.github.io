@@ -18,6 +18,24 @@
   },
   "activities": [
     {
+      "id": "2026-08-16-barbara",
+      "date": "2026-08-16",
+      "title": "新曲「夢の糸車」発表 ─ のむらゆうこの小宇宙",
+      "type": "live",
+      "venue": "シャンソニエ バルバラ",
+      "area": "東京都港区赤坂",
+      "summary": "のむらゆうこさんのライブ「のむらゆうこの小宇宙」に参加し、新曲「夢の糸車」を発表しました。作詞はのむらゆうこさん、作曲を三原あみが担当しています。",
+      "detail": "",
+      "photo": "2026-08-16-barbara.jpg",
+      "photo_thumb": "2026-08-16-barbara-thumb.jpg",
+      "photo_caption": "ライブ会場にて、のむらゆうこさんと。",
+      "work_ids": [],
+      "performers": [
+        "のむらゆうこ"
+      ],
+      "credit_ok": true
+    },
+    {
       "id": "2026-08-12-ofuna-cherry",
       "date": "2026-08-12",
       "title": "バースデーライブ ─ 大船チェリー",

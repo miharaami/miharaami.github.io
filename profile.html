@@ -120,11 +120,13 @@
   <div class="section-inner" style="max-width:760px;">
     <div class="section-header">
       <div class="section-eyebrow">Awards &amp; Recognition</div>
-      <h2 class="section-title">受賞歴 ─ 5年連続の評価</h2>
+      <h2 class="section-title">受賞歴 ─ 三十余年の記録</h2>
       <div class="section-divider"></div>
     </div>
     <p class="lead text-center" style="margin-bottom:2.5rem;">
-      令和三年から令和七年まで、五年続けて評価をいただいております。
+      平成五年、童謡作家として日本童謡協会の童謡祭に入選。<br>
+      そこから三十年余を経て、令和三年から令和七年までは五年続けて<br>
+      作品を評価していただいております。
     </p>
     <div class="timeline" id="awardTimeline"></div>
     <p class="empty-note" id="awardEmpty" style="display:none;">受賞歴を読み込めませんでした。</p>
@@ -325,6 +327,7 @@
             <div class="timeline-meta">
               受賞作「${esc(a.work)}」
               ${bits.length ? `<span style="display:block;margin-top:0.3rem;">${bits.join('　/　')}</span>` : ''}
+              ${a.note ? `<span style="display:block;margin-top:0.5rem;font-size:0.85rem;color:var(--ink-mute);line-height:1.8;">${esc(a.note)}</span>` : ''}
             </div>
           </div>
         </div>

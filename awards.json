@@ -126,6 +126,34 @@
       "judge": "",
       "work_id": "",
       "note": ""
+    },
+    {
+      "id": "award-2000-doyousai-23",
+      "date": "2000-01-01",
+      "date_precision": "year",
+      "era": "平成12年",
+      "award": "入選",
+      "organization": "日本童謡協会",
+      "work": "森のプールは ビーバーのお家",
+      "event": "第23回 童謡祭",
+      "credits": "作詩：井上灯美子",
+      "judge": "",
+      "work_id": "",
+      "note": "「2000 新しい童謡集」（日本童謡協会編）に収録。やなせたかし氏によるイラストが添えられています。"
+    },
+    {
+      "id": "award-1993-doyousai-16",
+      "date": "1993-01-01",
+      "date_precision": "year",
+      "era": "平成5年",
+      "award": "入選",
+      "organization": "日本童謡協会",
+      "work": "バオバブの木の下で",
+      "event": "第16回 童謡祭",
+      "credits": "作詩：進藤いつ子",
+      "judge": "",
+      "work_id": "baobab-no-ki-no-shita-de",
+      "note": "「'93 新しい童謡集」（日本童謡協会編）に収録。やなせたかし氏によるイラストが添えられています。"
     }
   ]
 }
