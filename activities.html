@@ -161,9 +161,9 @@ function esc(s) {
   ));
 }
 
-function fmtDate(iso) {
+function fmtDate(iso, precision) {
   const [y, m, d] = iso.split('-');
-  return `${y}.${m}.${d}`;
+  return precision === 'year' ? y : `${y}.${m}.${d}`;
 }
 
 function fmtDateJp(iso) {
@@ -240,7 +240,7 @@ function cardHtml(a) {
       ${photoPart}
       <div class="activity-body">
         <div class="activity-head">
-          <span class="activity-date">${esc(fmtDate(a.date))}</span>
+          <span class="activity-date">${esc(fmtDate(a.date, a.date_precision))}</span>
           <span class="activity-type ${esc(a.type)}">${esc(TYPE_LABEL[a.type] || a.type)}</span>
         </div>
         <h3 class="activity-title">${esc(a.title)}</h3>

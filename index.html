@@ -303,9 +303,9 @@
       {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
     ));
   }
-  function fmtDate(iso) {
+  function fmtDate(iso, precision) {
     const [y, m, d] = iso.split('-');
-    return `${y}.${m}.${d}`;
+    return precision === 'year' ? y : `${y}.${m}.${d}`;
   }
   try {
     const res = await fetch('activities.json');
@@ -326,7 +326,7 @@
         <a class="activity-brief" href="activities.html">
           ${photoPart}
           <div class="activity-brief-body">
-            <div class="activity-brief-date">${esc(fmtDate(a.date))}</div>
+            <div class="activity-brief-date">${esc(fmtDate(a.date, a.date_precision))}</div>
             <div class="activity-brief-title">${esc(a.title)}</div>
             <div class="activity-brief-venue">${esc(a.venue || '')}</div>
           </div>
