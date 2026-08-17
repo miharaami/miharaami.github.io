@@ -1844,3 +1844,30 @@ body {
 .piano-search::placeholder { color: var(--ink-mute); }
 
 .piano-search:focus { border-color: var(--indigo-light); }
+
+/* ========== ピアノ曲 番号表示 ========== */
+/* サムネイル左上の番号（難易度の目安） */
+.piano-no-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(20, 38, 64, 0.85);
+  color: var(--cream);
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 0.26rem 0.62rem;
+  pointer-events: none;
+}
+
+/* 曲名の前に置く番号 */
+.piano-no {
+  display: inline-block;
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  margin-right: 0.55rem;
+}

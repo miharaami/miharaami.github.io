@@ -72,6 +72,12 @@
         指の運びも自然と身についてゆくのではないかと感じています。
       </p>
       <p>
+        これらはいずれも<strong style="color:var(--indigo-deep);">運指の練習</strong>のための曲です。
+        曲には番号を付してあり、<strong style="color:var(--indigo-deep);">番号が進むにつれて、
+        少しずつ難しくなる</strong>ように並べました。
+        No.1 から順に進んでいただければ、無理なく指が動くようになってゆきます。
+      </p>
+      <p>
         お子さんはもちろん、大人になってからピアノを始められた方にも
         弾いていただけるものです。どうぞお聴きになってみてください。
       </p>
@@ -87,14 +93,17 @@
       <h2 class="section-title">作品一覧</h2>
       <div class="section-divider"></div>
     </div>
-    <p class="lead text-center" style="margin-bottom:2rem;">
-      <span id="pianoCount"></span><br>
+    <p class="lead text-center" style="margin-bottom:1.4rem;">
+      <span id="pianoCount"></span>番号順に、少しずつ難しくなります。<br>
       サムネイルをクリックすると、その場で演奏をお聴きいただけます。
+    </p>
+    <p style="font-family:var(--sans-jp);font-size:0.82rem;color:var(--ink-mute);text-align:center;line-height:1.9;margin-bottom:2rem;">
+      ※番号は運指の難易度の目安です。欠番があります。
     </p>
 
     <div style="max-width:420px;margin:0 auto 2.5rem;">
       <input type="text" id="pianoSearch" class="piano-search"
-             placeholder="曲名で探す" aria-label="曲名で探す">
+             placeholder="曲名または番号で探す" aria-label="曲名または番号で探す">
     </div>
 
     <div class="kobato-grid" id="pianoGrid"></div>
@@ -209,7 +218,13 @@
 
   function render() {
     const k = keyword.trim();
-    const list = k ? pieces.filter(p => p.title.includes(k)) : pieces;
+    // 曲名のほか、番号（「12」「No.12」）でも探せるようにする
+    const list = k
+      ? pieces.filter(p =>
+          p.title.includes(k) ||
+          String(p.no) === k.replace(/^(no\.?|ｎｏ\.?)/i, '').trim()
+        )
+      : pieces;
 
     if (list.length === 0) {
       grid.innerHTML = ''; empty.style.display = 'block'; return;
@@ -218,13 +233,16 @@
 
     grid.innerHTML = list.map(p => `
       <article class="kobato-card">
-        <button class="kobato-thumb" data-yt="${esc(p.youtube)}" aria-label="${esc(p.title)} を再生">
+        <button class="kobato-thumb" data-yt="${esc(p.youtube)}" aria-label="No.${esc(p.no)} ${esc(p.title)} を再生">
           <img src="https://img.youtube.com/vi/${esc(p.youtube)}/hqdefault.jpg"
                alt="" loading="lazy"
                onerror="this.style.display='none';this.parentNode.classList.add('kobato-noimg');">
           <span class="kobato-play" aria-hidden="true"></span>
+          <span class="piano-no-badge">No.${esc(p.no)}</span>
         </button>
-        <h3 class="kobato-title">${esc(p.title)}</h3>
+        <h3 class="kobato-title">
+          <span class="piano-no">No.${esc(p.no)}</span>${esc(p.title)}
+        </h3>
         ${p.note ? `<p class="kobato-note">${esc(p.note)}</p>` : ''}
       </article>
     `).join('');
