@@ -28,9 +28,9 @@
     </button>
     <ul class="nav-links">
       <li><a href="index.html" class="active">ホーム</a></li>
-      <li><a href="profile.html">紹介</a></li>
-      <li><a href="works.html">作品集</a></li>
       <li><a href="discography.html">ディスコグラフィ</a></li>
+      <li><a href="works.html">作品集</a></li>
+      <li><a href="profile.html">紹介</a></li>
       <li><a href="piano.html">ピアノ曲</a></li>
       <li><a href="kids.html">子どもの音楽</a></li>
       <li><a href="order.html">作曲依頼</a></li>
@@ -74,6 +74,25 @@
     </div>
   </div>
 </div>
+
+<!-- 最新リリース -->
+<section class="section" id="latestReleases" style="display:none;">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Latest Releases</div>
+      <h2 class="section-title">最新のリリース</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="lead text-center" style="margin-bottom:2.5rem;">
+      演歌、歌謡曲を中心に、歌い手の方々とともに作品を送り出しています。<br>
+      <span id="releaseSummary" style="display:block;margin-top:0.8rem;font-size:0.95rem;color:var(--ink-mute);"></span>
+    </p>
+    <div class="disco-grid" id="latestDisco"></div>
+    <div class="text-center mt-4">
+      <a href="discography.html" class="btn btn-secondary">ディスコグラフィをすべて見る</a>
+    </div>
+  </div>
+</section>
 
 <!-- 代表作 -->
 <section id="works" class="section">
@@ -197,25 +216,6 @@
   </div>
 </section>
 
-<!-- 子どもの音楽 -->
-<section class="section section-cream">
-  <div class="section-inner" style="max-width:980px;">
-    <div class="section-header">
-      <div class="section-eyebrow">For Children</div>
-      <h2 class="section-title">子どもの音楽 ─ 特別な専門領域</h2>
-      <div class="section-divider"></div>
-    </div>
-    <p class="lead text-center">
-      ミュージカルキッズKOBATO主宰15年。<br>
-      カワイ出版「こどもたちへメッセージ」（作曲家によるピアノ小品集）3年連続全作品採用。<br>
-      子どもたちの記念曲、園歌、卒園ソング、学習発表会の曲などを承っています。
-    </p>
-    <div class="text-center mt-2">
-      <a href="kids.html" class="btn btn-primary">子どもの音楽 専門ページへ</a>
-    </div>
-  </div>
-</section>
-
 <!-- 最新の活動 -->
 <section class="section" id="latestActivities" style="display:none;">
   <div class="section-inner">
@@ -231,6 +231,25 @@
     <div class="activity-brief-grid" id="latestGrid"></div>
     <div class="text-center mt-4">
       <a href="activities.html" class="btn btn-secondary">活動記録をすべて見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- 子どもの音楽 -->
+<section class="section section-cream">
+  <div class="section-inner" style="max-width:980px;">
+    <div class="section-header">
+      <div class="section-eyebrow">For Children</div>
+      <h2 class="section-title">子どもの音楽 ─ 特別な専門領域</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="lead text-center">
+      ミュージカルキッズKOBATO主宰15年。<br>
+      カワイ出版「こどもたちへメッセージ」（作曲家によるピアノ小品集）3年連続全作品採用。<br>
+      子どもたちの記念曲、園歌、卒園ソング、学習発表会の曲などを承っています。
+    </p>
+    <div class="text-center mt-2">
+      <a href="kids.html" class="btn btn-primary">子どもの音楽 専門ページへ</a>
     </div>
   </div>
 </section>
@@ -265,9 +284,9 @@
         <h4>サイトマップ</h4>
         <ul>
           <li><a href="index.html">ホーム</a></li>
-          <li><a href="profile.html">紹介</a></li>
-          <li><a href="works.html">作品集</a></li>
           <li><a href="discography.html">ディスコグラフィ</a></li>
+          <li><a href="works.html">作品集</a></li>
+          <li><a href="profile.html">紹介</a></li>
           <li><a href="activities.html">活動記録</a></li>
           <li><a href="piano.html">ピアノ曲</a></li>
           <li><a href="kids.html">子どもの音楽</a></li>
@@ -296,6 +315,73 @@
     </div>
   </div>
 </footer>
+
+<script>
+// 最新リリース（CDジャケット）。携帯でも早い位置に作品が見えるようにする
+(async function loadLatestReleases() {
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+      {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+    ));
+  }
+  try {
+    const res = await fetch('discography.json');
+    if (!res.ok) return;
+    const data = await res.json();
+    const all = (data.discography || []).slice().sort((a, b) => {
+      const pa = Number(a.pin) || 0, pb = Number(b.pin) || 0;
+      if (pa && pb) return pa - pb;
+      if (pa) return -1;
+      if (pb) return 1;
+      return b.release_date.localeCompare(a.release_date);
+    });
+    if (all.length === 0) return;
+
+    // 集計（全件を対象に）
+    const years = all.map(d => Number(d.release_date.slice(0, 4)));
+    const singers = new Set(all.map(d => d.singer).filter(Boolean));
+    document.getElementById('releaseSummary').textContent =
+      `${Math.min(...years)}年から${all.length}作品／${singers.size}名の歌い手`;
+
+    // 表示は4件まで
+    const list = all.slice(0, 4);
+    document.getElementById('latestDisco').innerHTML = list.map(d => {
+      const year = d.release_date.slice(0, 4);
+      const showJacket = d.jacket && d.jacket_ok === true;
+      const inner = showJacket
+        ? `<img src="${esc(d.jacket)}" alt="${esc(d.title)} ジャケット" loading="lazy">`
+        : `<div class="disco-jacket-placeholder">
+             <span class="ph-mark">♪</span>
+             <div class="ph-title">${esc(d.title)}</div>
+           </div>`;
+      const badges = [];
+      if (d.upcoming) badges.push('<span class="disco-badge upcoming">発売予定</span>');
+      if (d.karaoke) badges.push(`<span class="disco-badge karaoke">${esc(d.karaoke)} 配信中</span>`);
+
+      return `
+        <article class="disco-card">
+          <div class="disco-jacket">
+            <span class="disco-year">${esc(year)}</span>
+            ${inner}
+          </div>
+          <div class="disco-info">
+            <h3 class="disco-title">${esc(d.title)}</h3>
+            <div class="disco-meta">
+              ${d.singer ? `<strong>歌</strong>：${esc(d.singer)}<br>` : ''}
+              <strong>${esc(d.role)}</strong>：三原あみ
+            </div>
+            <div class="disco-badges">${badges.join('')}</div>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    document.getElementById('latestReleases').style.display = '';
+  } catch (e) {
+    console.error('リリース情報の読込に失敗しました:', e);
+  }
+})();
+</script>
 
 <script>
 // 最新の活動をトップに表示（データが無い場合はセクションごと非表示）
