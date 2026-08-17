@@ -1825,3 +1825,22 @@ body {
   margin-top: 0.3rem;
   padding-left: 0.2rem;
 }
+
+/* ========== ピアノ曲ページ 検索欄 ========== */
+.piano-search {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font-family: var(--serif-jp);
+  font-size: 0.98rem;
+  color: var(--ink);
+  background: var(--cream);
+  border: 0.5px solid var(--line);
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.3s;
+  -webkit-appearance: none;
+}
+
+.piano-search::placeholder { color: var(--ink-mute); }
+
+.piano-search:focus { border-color: var(--indigo-light); }

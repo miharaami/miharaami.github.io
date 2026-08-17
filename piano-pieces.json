@@ -1,0 +1,221 @@
+{
+  "_comment": "三原あみ ピアノ小品（レッスン曲）。piano.html で読み込む。番号は本人が動画に付した通し番号で、欠番があります。",
+  "_columns": {
+    "no": "本人が付した通し番号。欠番あり",
+    "title": "曲名",
+    "youtube": "YouTube動画ID（11文字）",
+    "note": "補足。無ければ空文字"
+  },
+  "pieces": [
+    {
+      "no": 1,
+      "title": "おはようサン",
+      "youtube": "C3Gk54nnRMA",
+      "note": ""
+    },
+    {
+      "no": 2,
+      "title": "カミナリきたぞ",
+      "youtube": "j-UqznWpY7A",
+      "note": ""
+    },
+    {
+      "no": 4,
+      "title": "虹",
+      "youtube": "yuS7J3iSmSw",
+      "note": ""
+    },
+    {
+      "no": 5,
+      "title": "カエルが滑った",
+      "youtube": "WevlBwzC4cw",
+      "note": ""
+    },
+    {
+      "no": 6,
+      "title": "ブルブル冷たい冷蔵庫",
+      "youtube": "cqi6bauTqnM",
+      "note": ""
+    },
+    {
+      "no": 7,
+      "title": "北風吹いてきた",
+      "youtube": "08sAw7t8yDY",
+      "note": ""
+    },
+    {
+      "no": 8,
+      "title": "カニカニ歩くよ",
+      "youtube": "1n-NjOM2YZc",
+      "note": ""
+    },
+    {
+      "no": 9,
+      "title": "お風呂でゴシゴシ",
+      "youtube": "4PgxGYMUXQw",
+      "note": ""
+    },
+    {
+      "no": 10,
+      "title": "回るよ回るよティーカップ",
+      "youtube": "8X6A5fFfzCw",
+      "note": ""
+    },
+    {
+      "no": 11,
+      "title": "ネオンがキラキラ",
+      "youtube": "p-SSb3GMAIw",
+      "note": ""
+    },
+    {
+      "no": 12,
+      "title": "ネオンがキラキラ・くだり",
+      "youtube": "5rU9jXvynQs",
+      "note": ""
+    },
+    {
+      "no": 14,
+      "title": "おもちゃの兵隊トテチテタ",
+      "youtube": "wIe8spt64Vg",
+      "note": ""
+    },
+    {
+      "no": 15,
+      "title": "ガタゴト電車ガタゴトゆれる",
+      "youtube": "E0GQdJQJrBo",
+      "note": ""
+    },
+    {
+      "no": 16,
+      "title": "花びらゆれている",
+      "youtube": "-e5n7HUnk3o",
+      "note": ""
+    },
+    {
+      "no": 17,
+      "title": "宿題終わらせはやく遊ぼう",
+      "youtube": "4HKJp_I9o1Q",
+      "note": ""
+    },
+    {
+      "no": 18,
+      "title": "糸まきまき",
+      "youtube": "IKcSA3fiy5Y",
+      "note": ""
+    },
+    {
+      "no": 19,
+      "title": "子犬が吠えるよワンワンワン",
+      "youtube": "1TMcAYYqC1s",
+      "note": ""
+    },
+    {
+      "no": 20,
+      "title": "屋根に登って",
+      "youtube": "g8ey-xqPdMU",
+      "note": ""
+    },
+    {
+      "no": 21,
+      "title": "踊りましょう",
+      "youtube": "fK4AXuQxfe8",
+      "note": ""
+    },
+    {
+      "no": 22,
+      "title": "ガオガオあひる",
+      "youtube": "C1dxvS2wskE",
+      "note": ""
+    },
+    {
+      "no": 23,
+      "title": "どんぐりコロコロ",
+      "youtube": "TNBpEwisZQI",
+      "note": ""
+    },
+    {
+      "no": 24,
+      "title": "ゆきの小坊主",
+      "youtube": "ggkFdqp27RI",
+      "note": ""
+    },
+    {
+      "no": 25,
+      "title": "伸びる伸びるつるが伸びる",
+      "youtube": "hJgg3qewUio",
+      "note": ""
+    },
+    {
+      "no": 26,
+      "title": "ジャンケンポンで決めてみよう",
+      "youtube": "a9ggpGg13Z4",
+      "note": ""
+    },
+    {
+      "no": 28,
+      "title": "カニカニあるくよ",
+      "youtube": "WRdK5Qc4JNQ",
+      "note": ""
+    },
+    {
+      "no": 29,
+      "title": "もうすぐ焼けるよパンケーキ",
+      "youtube": "x2ukwe_2FQI",
+      "note": ""
+    },
+    {
+      "no": 30,
+      "title": "ピポピポ宇宙人",
+      "youtube": "9ZryQnXdMLU",
+      "note": ""
+    },
+    {
+      "no": 31,
+      "title": "レストランでランチ",
+      "youtube": "69tjRBo-sak",
+      "note": ""
+    },
+    {
+      "no": 32,
+      "title": "ジャンプでボールがバウンド",
+      "youtube": "o52yuxKM4cA",
+      "note": ""
+    },
+    {
+      "no": 33,
+      "title": "キツツキ",
+      "youtube": "2LsqMRyM6G4",
+      "note": ""
+    },
+    {
+      "no": 34,
+      "title": "チャーシュ",
+      "youtube": "PRBRDXU_aQM",
+      "note": ""
+    },
+    {
+      "no": 35,
+      "title": "子犬のしっぽ",
+      "youtube": "qLyiFo9huXE",
+      "note": ""
+    },
+    {
+      "no": 39,
+      "title": "氷をザクザク削ったよ",
+      "youtube": "O-1-zyOb3yc",
+      "note": ""
+    },
+    {
+      "no": 40,
+      "title": "ヒラヒラちょうちょ",
+      "youtube": "5yeR12Zm2Og",
+      "note": ""
+    },
+    {
+      "no": 41,
+      "title": "朝日がのぼるよ",
+      "youtube": "75hyPArAg7A",
+      "note": ""
+    }
+  ]
+}

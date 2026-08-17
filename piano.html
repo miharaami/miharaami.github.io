@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ピアノ曲 ─ 三原あみ 作曲家公式サイト</title>
+<meta name="description" content="作曲家・三原あみによる、はじめてピアノに触れる方のための小品集。指の練習でありながら、一曲として弾いて楽しい作品を集めました。子どもにも、大人になってから始めた方にも。">
+<meta property="og:title" content="ピアノ曲 ─ 三原あみ 作曲家公式サイト">
+<meta property="og:description" content="はじめてピアノに触れる方のための小品集。子どもにも、大人になってから始めた方にも。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="global-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">三原あみ</span>
+      <span class="nav-brand-sub">— Composer</span>
+    </a>
+    <button class="nav-toggle" aria-label="メニュー" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <svg width="22" height="22" viewBox="0 0 22 22"><line x1="3" y1="6" x2="19" y2="6" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="11" x2="19" y2="11" stroke="currentColor" stroke-width="1.5"/><line x1="3" y1="16" x2="19" y2="16" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="profile.html">紹介</a></li>
+      <li><a href="works.html">作品集</a></li>
+      <li><a href="discography.html">ディスコグラフィ</a></li>
+      <li><a href="piano.html" class="active">ピアノ曲</a></li>
+      <li><a href="kids.html">子どもの音楽</a></li>
+      <li><a href="order.html">作曲依頼</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow">Piano Pieces</div>
+  <h1 class="hero-title">ピアノ曲</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-subtitle">
+    はじめてピアノに触れる方のために書いた、短い曲を集めました。<br>
+    指の練習でありながら、一曲として弾いて楽しいものを。<br>
+    子どもにも、大人になってから始めた方にも。
+  </p>
+</section>
+
+<!-- 考えていること -->
+<section class="section">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="section-header">
+      <div class="section-eyebrow">Why</div>
+      <h2 class="section-title">練習曲も、一曲の音楽です</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="profile-text" style="max-width:680px;margin:0 auto;">
+      <p>
+        指を動かすための練習曲は、どうしても味気ないものになりがちです。
+        けれど、はじめて鍵盤に向かう方にとって、最初に出会う一曲は
+        「ピアノは楽しい」と思えるかどうかを決めてしまいます。
+      </p>
+      <p>
+        ですから、短くても一曲として成立していること。
+        題名を見ただけで情景が浮かび、弾きながらその世界に入っていけること。
+        そういう曲を書きたいと思って作ってまいりました。
+      </p>
+      <p>
+        カニが横に歩く、冷蔵庫がブルブル震える、パンケーキがもうすぐ焼ける──。
+        身体の動きや日々の情景と結びついていれば、
+        指の運びも自然と身についてゆくのではないかと感じています。
+      </p>
+      <p>
+        お子さんはもちろん、大人になってからピアノを始められた方にも
+        弾いていただけるものです。どうぞお聴きになってみてください。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 一覧 -->
+<section class="section section-cream" id="pianoSection" style="display:none;">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Listen</div>
+      <h2 class="section-title">作品一覧</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="lead text-center" style="margin-bottom:2rem;">
+      <span id="pianoCount"></span><br>
+      サムネイルをクリックすると、その場で演奏をお聴きいただけます。
+    </p>
+
+    <div style="max-width:420px;margin:0 auto 2.5rem;">
+      <input type="text" id="pianoSearch" class="piano-search"
+             placeholder="曲名で探す" aria-label="曲名で探す">
+    </div>
+
+    <div class="kobato-grid" id="pianoGrid"></div>
+    <p class="empty-note" id="pianoEmpty" style="display:none;">該当する曲がありません。</p>
+  </div>
+</section>
+
+<!-- 楽譜について -->
+<section class="section">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="section-header">
+      <div class="section-eyebrow">Sheet Music</div>
+      <h2 class="section-title">楽譜について</h2>
+      <div class="section-divider"></div>
+    </div>
+    <p class="lead text-center">
+      弾いてみたいと思われた曲がございましたら、<br>
+      楽譜については個別にご相談ください。
+    </p>
+    <div class="btn-row" style="margin-top:2rem;">
+      <a href="order.html" class="btn btn-primary">お問い合わせ</a>
+    </div>
+  </div>
+</section>
+
+<!-- 教材の作曲 -->
+<section class="feature-box">
+  <div class="feature-eyebrow">For Teachers</div>
+  <h2 class="feature-title">あなたの教室のための一曲も</h2>
+  <p class="feature-text">
+    生徒さんの手の大きさ、進み具合、好きなもの。<br>
+    それに合わせた曲をお作りすることもできます。<br>
+    発表会のための曲、教材としての小品、連弾の曲など、<br>
+    ご相談を承っております。
+  </p>
+</section>
+
+<section class="cta section-cream">
+  <h2 class="cta-title">はじめの一曲を、ご一緒に</h2>
+  <p class="cta-text">レッスン教材の作曲、発表会用の曲のご相談を承ります。</p>
+  <div class="btn-row">
+    <a href="order.html" class="btn btn-primary">作曲を依頼する</a>
+    <a href="kids.html" class="btn btn-secondary">子どもの音楽について</a>
+  </div>
+</section>
+
+<footer class="global-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>サイトマップ</h4>
+        <ul>
+          <li><a href="index.html">ホーム</a></li>
+          <li><a href="profile.html">紹介</a></li>
+          <li><a href="works.html">作品集</a></li>
+          <li><a href="discography.html">ディスコグラフィ</a></li>
+          <li><a href="activities.html">活動記録</a></li>
+          <li><a href="piano.html">ピアノ曲</a></li>
+          <li><a href="kids.html">子どもの音楽</a></li>
+          <li><a href="order.html">作曲依頼</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>所属団体</h4>
+        <ul>
+          <li>JASRAC（日本音楽著作権協会）</li>
+          <li>日本作曲家協会</li>
+          <li>日本作曲家協議会</li>
+          <li>ミュージカルキッズKOBATO 主宰</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>お問い合わせ</h4>
+        <ul>
+          <li><a href="order.html">作曲依頼フォーム</a></li>
+          <li>制作協力：yymm77</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 三原あみ Composer Office  /  All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+<script>
+// ピアノ小品一覧。曲数が多いためサムネイル表示にし、クリックされた1本だけ再生する
+(async function loadPiano() {
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+      {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+    ));
+  }
+
+  let pieces = [], keyword = '';
+
+  try {
+    const res = await fetch('piano-pieces.json');
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    pieces = data.pieces || [];
+    if (pieces.length === 0) throw new Error('empty');
+  } catch (e) {
+    console.error('ピアノ曲データの読込に失敗しました:', e);
+    return; // セクションごと非表示のまま
+  }
+
+  document.getElementById('pianoCount').textContent = `全${pieces.length}曲。`;
+
+  const grid = document.getElementById('pianoGrid');
+  const empty = document.getElementById('pianoEmpty');
+
+  function render() {
+    const k = keyword.trim();
+    const list = k ? pieces.filter(p => p.title.includes(k)) : pieces;
+
+    if (list.length === 0) {
+      grid.innerHTML = ''; empty.style.display = 'block'; return;
+    }
+    empty.style.display = 'none';
+
+    grid.innerHTML = list.map(p => `
+      <article class="kobato-card">
+        <button class="kobato-thumb" data-yt="${esc(p.youtube)}" aria-label="${esc(p.title)} を再生">
+          <img src="https://img.youtube.com/vi/${esc(p.youtube)}/hqdefault.jpg"
+               alt="" loading="lazy"
+               onerror="this.style.display='none';this.parentNode.classList.add('kobato-noimg');">
+          <span class="kobato-play" aria-hidden="true"></span>
+        </button>
+        <h3 class="kobato-title">${esc(p.title)}</h3>
+        ${p.note ? `<p class="kobato-note">${esc(p.note)}</p>` : ''}
+      </article>
+    `).join('');
+  }
+
+  grid.addEventListener('click', e => {
+    const btn = e.target.closest('.kobato-thumb');
+    if (!btn) return;
+    const id = btn.dataset.yt;
+    const box = document.createElement('div');
+    box.className = 'kobato-thumb kobato-playing';
+    box.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?rel=0&autoplay=1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>`;
+    btn.replaceWith(box);
+  });
+
+  document.getElementById('pianoSearch').addEventListener('input', e => {
+    keyword = e.target.value;
+    render();
+  });
+
+  render();
+  document.getElementById('pianoSection').style.display = '';
+})();
+</script>
+
+</body>
+</html>
