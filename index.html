@@ -336,9 +336,19 @@
     ));
   }
   try {
-    const res = await fetch('discography.json');
+    const [res, wRes] = await Promise.all([
+      fetch('discography.json'),
+      fetch('works.json').catch(() => null)
+    ]);
     if (!res.ok) return;
     const data = await res.json();
+
+    // 楽曲の動画IDを引けるようにする
+    const wIndex = {};
+    if (wRes && wRes.ok) {
+      const wData = await wRes.json();
+      (wData.works || []).forEach(w => { wIndex[w.id] = w; });
+    }
     const all = (data.discography || []).slice().sort((a, b) => {
       const pa = Number(a.pin) || 0, pb = Number(b.pin) || 0;
       if (pa && pb) return pa - pb;
@@ -369,12 +379,25 @@
       if (d.upcoming) badges.push('<span class="disco-badge upcoming">発売予定</span>');
       if (d.karaoke) badges.push(`<span class="disco-badge karaoke">${esc(d.karaoke)} 配信中</span>`);
 
+      const vids = (d.work_ids || []).filter(id => wIndex[id] && wIndex[id].youtube);
+      const vid = vids.length ? wIndex[vids[0]].youtube : '';
+      const jacketBox = vid
+        ? `<a class="disco-jacket has-video"
+               href="https://www.youtube.com/watch?v=${esc(vid)}"
+               target="_blank" rel="noopener"
+               aria-label="${esc(wIndex[vids[0]].title)} をYouTubeで見る">
+             <span class="disco-year">${esc(year)}</span>
+             ${inner}
+             <span class="work-play" aria-hidden="true"></span>
+           </a>`
+        : `<div class="disco-jacket">
+             <span class="disco-year">${esc(year)}</span>
+             ${inner}
+           </div>`;
+
       return `
         <article class="disco-card">
-          <div class="disco-jacket">
-            <span class="disco-year">${esc(year)}</span>
-            ${inner}
-          </div>
+          ${jacketBox}
           <div class="disco-info">
             <h3 class="disco-title">${esc(d.title)}</h3>
             <div class="disco-meta">

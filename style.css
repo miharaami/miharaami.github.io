@@ -1924,3 +1924,28 @@ body {
 
 /* KOBATO・ピアノ曲のサムネイルはリンクになったため、下線などを打ち消す */
 a.kobato-thumb { text-decoration: none; display: block; }
+
+/* ========== ジャケットから動画へ ========== */
+a.disco-jacket {
+  display: flex;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.disco-jacket img { transition: transform 0.4s, opacity 0.3s; }
+
+a.disco-jacket:hover img { transform: scale(1.04); opacity: 0.9; }
+
+/* ジャケット上の再生マークは控えめに（ジャケット絵柄を隠しすぎない） */
+.disco-jacket .work-play {
+  width: 46px;
+  height: 32px;
+  border-radius: 7px;
+  background: rgba(20, 38, 64, 0.62);
+}
+
+.disco-jacket .work-play::after {
+  border-width: 7px 0 7px 11px;
+}
+
+a.disco-jacket:hover .work-play { background: var(--vermillion); }
