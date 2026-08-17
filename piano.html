@@ -94,7 +94,7 @@
     </div>
     <p class="lead text-center" style="margin-bottom:1.4rem;">
       <span id="pianoCount"></span>番号順に、少しずつ難しくなります。<br>
-      サムネイルをクリックすると、その場でお聴きいただけます。<br>
+      サムネイルをクリックすると、YouTubeが開きます。<br>
       ぜひ、一緒にうたいながら弾いてみてください。
     </p>
     <p style="font-family:var(--sans-jp);font-size:0.82rem;color:var(--ink-mute);text-align:center;line-height:1.9;margin-bottom:2rem;">
@@ -233,13 +233,14 @@
 
     grid.innerHTML = list.map(p => `
       <article class="kobato-card">
-        <button class="kobato-thumb" data-yt="${esc(p.youtube)}" aria-label="No.${esc(p.no)} ${esc(p.title)} を再生">
+        <a class="kobato-thumb" href="https://www.youtube.com/watch?v=${esc(p.youtube)}"
+           target="_blank" rel="noopener" aria-label="No.${esc(p.no)} ${esc(p.title)} をYouTubeで見る">
           <img src="https://img.youtube.com/vi/${esc(p.youtube)}/hqdefault.jpg"
                alt="" loading="lazy"
                onerror="this.style.display='none';this.parentNode.classList.add('kobato-noimg');">
           <span class="kobato-play" aria-hidden="true"></span>
           <span class="piano-no-badge">No.${esc(p.no)}</span>
-        </button>
+        </a>
         <h3 class="kobato-title">
           <span class="piano-no">No.${esc(p.no)}</span>${esc(p.title)}
         </h3>
@@ -247,18 +248,6 @@
       </article>
     `).join('');
   }
-
-  grid.addEventListener('click', e => {
-    const btn = e.target.closest('.kobato-thumb');
-    if (!btn) return;
-    const id = btn.dataset.yt;
-    const box = document.createElement('div');
-    box.className = 'kobato-thumb kobato-playing';
-    box.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?rel=0&autoplay=1"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>`;
-    btn.replaceWith(box);
-  });
 
   document.getElementById('pianoSearch').addEventListener('input', e => {
     keyword = e.target.value;

@@ -149,7 +149,10 @@
     <div class="work-grid">
       <article class="work-card">
         <div class="work-thumb">
-          <iframe src="https://www.youtube.com/embed/qoYVwBU6jbs?rel=0" loading="lazy" allowfullscreen></iframe>
+          <a class="work-thumb-link" href="https://www.youtube.com/watch?v=qoYVwBU6jbs" target="_blank" rel="noopener" aria-label="YouTubeで見る">
+            <img src="https://img.youtube.com/vi/qoYVwBU6jbs/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('work-noimg');">
+            <span class="work-play" aria-hidden="true"></span>
+          </a>
         </div>
         <div class="work-info">
           <h3 class="work-title">夢こねパン屋</h3>
@@ -162,7 +165,10 @@
       </article>
       <article class="work-card">
         <div class="work-thumb">
-          <iframe src="https://www.youtube.com/embed/8cPprm3pIFA?rel=0" loading="lazy" allowfullscreen></iframe>
+          <a class="work-thumb-link" href="https://www.youtube.com/watch?v=8cPprm3pIFA" target="_blank" rel="noopener" aria-label="YouTubeで見る">
+            <img src="https://img.youtube.com/vi/8cPprm3pIFA/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('work-noimg');">
+            <span class="work-play" aria-hidden="true"></span>
+          </a>
         </div>
         <div class="work-info">
           <h3 class="work-title">はじめの一歩 〜君をのせて〜</h3>
@@ -175,7 +181,10 @@
       </article>
       <article class="work-card">
         <div class="work-thumb">
-          <iframe src="https://www.youtube.com/embed/Iqe6RnonabU?rel=0" loading="lazy" allowfullscreen></iframe>
+          <a class="work-thumb-link" href="https://www.youtube.com/watch?v=Iqe6RnonabU" target="_blank" rel="noopener" aria-label="YouTubeで見る">
+            <img src="https://img.youtube.com/vi/Iqe6RnonabU/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('work-noimg');">
+            <span class="work-play" aria-hidden="true"></span>
+          </a>
         </div>
         <div class="work-info">
           <h3 class="work-title">バオバブの木の下で</h3>
@@ -189,7 +198,10 @@
       </article>
       <article class="work-card">
         <div class="work-thumb">
-          <iframe src="https://www.youtube.com/embed/vWqeICdchCo?rel=0" loading="lazy" allowfullscreen></iframe>
+          <a class="work-thumb-link" href="https://www.youtube.com/watch?v=vWqeICdchCo" target="_blank" rel="noopener" aria-label="YouTubeで見る">
+            <img src="https://img.youtube.com/vi/vWqeICdchCo/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('work-noimg');">
+            <span class="work-play" aria-hidden="true"></span>
+          </a>
         </div>
         <div class="work-info">
           <h3 class="work-title">種の歌</h3>
@@ -202,7 +214,10 @@
       </article>
       <article class="work-card">
         <div class="work-thumb">
-          <iframe src="https://www.youtube.com/embed/RpIYgwqh74c?rel=0" loading="lazy" allowfullscreen></iframe>
+          <a class="work-thumb-link" href="https://www.youtube.com/watch?v=RpIYgwqh74c" target="_blank" rel="noopener" aria-label="YouTubeで見る">
+            <img src="https://img.youtube.com/vi/RpIYgwqh74c/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('work-noimg');">
+            <span class="work-play" aria-hidden="true"></span>
+          </a>
         </div>
         <div class="work-info">
           <h3 class="work-title">ココア色の時間</h3>
@@ -214,7 +229,10 @@
       </article>
       <article class="work-card">
         <div class="work-thumb">
-          <iframe src="https://www.youtube.com/embed/bLhaCW0mw4Q?rel=0" loading="lazy" allowfullscreen></iframe>
+          <a class="work-thumb-link" href="https://www.youtube.com/watch?v=bLhaCW0mw4Q" target="_blank" rel="noopener" aria-label="YouTubeで見る">
+            <img src="https://img.youtube.com/vi/bLhaCW0mw4Q/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('work-noimg');">
+            <span class="work-play" aria-hidden="true"></span>
+          </a>
         </div>
         <div class="work-info">
           <h3 class="work-title">夜中のおひなさま</h3>
@@ -247,7 +265,7 @@
     <p class="empty-note" id="kobatoEmpty" style="display:none;">該当する作品がありません。</p>
 
     <p style="font-family:var(--sans-jp);font-size:0.78rem;color:var(--ink-mute);text-align:center;margin-top:2rem;line-height:1.9;">
-      サムネイルをクリックすると、その場で再生できます。
+      サムネイルをクリックすると、YouTubeが開きます。
     </p>
   </div>
 </section>
@@ -407,30 +425,18 @@
 
     grid.innerHTML = list.map(s => `
       <article class="kobato-card">
-        <button class="kobato-thumb" data-yt="${esc(s.youtube)}" aria-label="${esc(s.title)} を再生">
+        <a class="kobato-thumb" href="https://www.youtube.com/watch?v=${esc(s.youtube)}"
+           target="_blank" rel="noopener" aria-label="${esc(s.title)} をYouTubeで見る">
           <img src="https://img.youtube.com/vi/${esc(s.youtube)}/hqdefault.jpg"
                alt="" loading="lazy"
                onerror="this.style.display='none';this.parentNode.classList.add('kobato-noimg');">
           <span class="kobato-play" aria-hidden="true"></span>
-        </button>
+        </a>
         <h3 class="kobato-title">${esc(s.title)}</h3>
         ${s.note ? `<p class="kobato-note">${esc(s.note)}</p>` : ''}
       </article>
     `).join('');
   }
-
-  // クリックでその場をiframeに差し替える
-  grid.addEventListener('click', e => {
-    const btn = e.target.closest('.kobato-thumb');
-    if (!btn) return;
-    const id = btn.dataset.yt;
-    const box = document.createElement('div');
-    box.className = 'kobato-thumb kobato-playing';
-    box.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?rel=0&autoplay=1"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>`;
-    btn.replaceWith(box);
-  });
 
   fb.addEventListener('click', e => {
     if (!e.target.matches('.filter-btn')) return;

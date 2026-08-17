@@ -297,7 +297,13 @@
 
     grid.innerHTML = list.map(w => {
       const media = w.youtube
-        ? `<iframe src="https://www.youtube.com/embed/${esc(w.youtube)}?rel=0" loading="lazy" allowfullscreen></iframe>`
+        ? `<a class="work-thumb-link" href="https://www.youtube.com/watch?v=${esc(w.youtube)}"
+               target="_blank" rel="noopener" aria-label="${esc(w.title)} をYouTubeで見る">
+             <img src="https://img.youtube.com/vi/${esc(w.youtube)}/hqdefault.jpg"
+                  alt="" loading="lazy"
+                  onerror="this.style.display='none';this.parentNode.classList.add('work-noimg');">
+             <span class="work-play" aria-hidden="true"></span>
+           </a>`
         : `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(250,246,240,0.6);font-family:var(--serif-en);font-style:italic;">Audio coming soon</div>`;
       const tags = (w.tags || []).map(t => `<span class="work-tag">${esc(t)}</span>`).join('');
       return `
