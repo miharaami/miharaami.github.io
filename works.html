@@ -150,7 +150,14 @@ async function loadWorks() {
   try {
     const res = await fetch('works.json');
     const data = await res.json();
-    allWorks = data.works;
+    // pin が指定されたものを先頭へ（数字の小さい順）。それ以外は登録順
+    allWorks = data.works.slice().sort((a, b) => {
+      const pa = Number(a.pin) || 0, pb = Number(b.pin) || 0;
+      if (pa && pb) return pa - pb;
+      if (pa) return -1;
+      if (pb) return 1;
+      return 0;
+    });
     render();
   } catch(e) {
     console.error('楽曲データの読込に失敗しました:', e);

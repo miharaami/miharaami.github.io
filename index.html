@@ -102,50 +102,7 @@
       <h2 class="section-title">代表作品</h2>
       <div class="section-divider"></div>
     </div>
-    <div class="work-grid">
-      <article class="work-card">
-        <div class="work-thumb">
-          <iframe src="https://www.youtube.com/embed/QOSiJmYNzac?rel=0" loading="lazy" allowfullscreen></iframe>
-        </div>
-        <div class="work-info">
-          <h3 class="work-title">そばがいい</h3>
-          <div class="work-meta">
-            <span class="work-tag">受賞作</span>
-            <span class="work-tag">歌謡曲</span><br>
-            <strong>歌</strong>：小林幸子　<strong>作詞</strong>：美貴裕子<br>
-            エターナルソング・コンテスト 作曲の部 優秀賞（委員長：湯川れい子）
-          </div>
-        </div>
-      </article>
-      <article class="work-card">
-        <div class="work-thumb">
-          <iframe src="https://www.youtube.com/embed/wJIBcibg2xE?rel=0" loading="lazy" allowfullscreen></iframe>
-        </div>
-        <div class="work-info">
-          <h3 class="work-title">昇り銀竜夢花火</h3>
-          <div class="work-meta">
-            <span class="work-tag">演歌</span>
-            <span class="work-tag">公式イメージソング</span><br>
-            <strong>歌</strong>：梵天ゆず太郎（栃木県出身・大学在学中の演歌歌手）　<strong>作詞</strong>：滝沢まさとし<br>
-            令和7（2025）年 うつのみや花火大会 公式イメージソング
-          </div>
-        </div>
-      </article>
-      <article class="work-card">
-        <div class="work-thumb">
-          <iframe src="https://www.youtube.com/embed/U5QBSHQ6z00?rel=0" loading="lazy" allowfullscreen></iframe>
-        </div>
-        <div class="work-info">
-          <h3 class="work-title">愛よ還れ</h3>
-          <div class="work-meta">
-            <span class="work-tag">歌謡曲</span>
-            <span class="work-tag">愛の歌</span><br>
-            <strong>歌</strong>：小松伸久　<strong>作詞</strong>：滝沢まさとし<br>
-            確かな歌唱力で歌い上げる愛の一曲
-          </div>
-        </div>
-      </article>
-    </div>
+    <div class="work-grid" id="topWorkGrid"></div>
     <div class="text-center mt-4">
       <a href="works.html" class="btn btn-secondary">全作品を見る</a>
     </div>
@@ -315,6 +272,54 @@
     </div>
   </div>
 </footer>
+
+<script>
+// 代表作品。works.json の pin 順に先頭3件を表示する
+(async function loadTopWorks() {
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, c => (
+      {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]
+    ));
+  }
+  const grid = document.getElementById('topWorkGrid');
+  try {
+    const res = await fetch('works.json');
+    if (!res.ok) throw new Error('not found');
+    const data = await res.json();
+    const list = (data.works || []).slice().sort((a, b) => {
+      const pa = Number(a.pin) || 0, pb = Number(b.pin) || 0;
+      if (pa && pb) return pa - pb;
+      if (pa) return -1;
+      if (pb) return 1;
+      return 0;
+    }).slice(0, 3);
+    if (list.length === 0) throw new Error('empty');
+
+    grid.innerHTML = list.map(w => {
+      const media = w.youtube
+        ? `<iframe src="https://www.youtube.com/embed/${esc(w.youtube)}?rel=0" loading="lazy" allowfullscreen></iframe>`
+        : `<div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(250,246,240,0.6);font-family:var(--serif-en);font-style:italic;">Audio coming soon</div>`;
+      const tags = (w.tags || []).map(t => `<span class="work-tag">${esc(t)}</span>`).join('');
+      return `
+        <article class="work-card">
+          <div class="work-thumb">${media}</div>
+          <div class="work-info">
+            <h3 class="work-title">${esc(w.title)}</h3>
+            <div class="work-meta">
+              ${tags}${tags ? '<br>' : ''}
+              <strong>歌</strong>：${esc(w.singer)}　<strong>作詞</strong>：${esc(w.lyricist)}<br>
+              <span style="display:block;margin-top:0.5rem;font-size:0.8rem;line-height:1.7;">${esc(w.description)}</span>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+  } catch (e) {
+    console.error('代表作品の読込に失敗しました:', e);
+    grid.innerHTML = '<p class="empty-note" style="grid-column:1/-1;">作品を読み込めませんでした。</p>';
+  }
+})();
+</script>
 
 <script>
 // 最新リリース（CDジャケット）。携帯でも早い位置に作品が見えるようにする

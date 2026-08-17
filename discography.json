@@ -137,7 +137,7 @@
       ],
       "jacket": "jacket-kaze-no-tappizaki.jpg",
       "jacket_ok": true,
-      "pin": 0
+      "pin": 5
     },
     {
       "id": "cd-2024-nobori-ginryu",
@@ -156,7 +156,7 @@
       ],
       "jacket": "jacket-nobori-ginryu.jpg",
       "jacket_ok": true,
-      "pin": 1
+      "pin": 2
     },
     {
       "id": "cd-2024-eternal-song",
@@ -175,7 +175,7 @@
       ],
       "jacket": "jacket-eternal-song.jpg",
       "jacket_ok": true,
-      "pin": 0
+      "pin": 6
     },
     {
       "id": "cd-2025-sora-no-hajimari",
@@ -194,7 +194,7 @@
       ],
       "jacket": "jacket-sora-no-hajimari.jpg",
       "jacket_ok": true,
-      "pin": 0
+      "pin": 1
     },
     {
       "id": "cd-2026-ichizu-zake",
@@ -213,7 +213,7 @@
       ],
       "jacket": "jacket-ichizu-zake.jpg",
       "jacket_ok": true,
-      "pin": 0
+      "pin": 4
     },
     {
       "id": "cd-2026-miren-bana",
@@ -232,7 +232,7 @@
       ],
       "jacket": "jacket-miren-bana.jpg",
       "jacket_ok": true,
-      "pin": 0
+      "pin": 3
     },
     {
       "id": "cd-2026-oshima-ondo",
